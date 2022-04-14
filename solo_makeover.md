@@ -39,8 +39,16 @@ Click apply.  The panel should look similar to what we have below.
 ![K8s Service Status](img/k8s-service-status.png)
 
 ## Convert the Customer Activity panel from a stat panel to a Geomap
-
-
+This one is a mess. I've been told that this data is from OSS Loki, our logging tool, and represents the number of hits coming from each Geographic region. It is colorful, but I have a very difficult time interpreting the information.  Let's change the visualization to a map!
+1. Edit the *Customer Activity* panel (click on the panel's title and then *Edit*)
+2. Switch the Visualization Type from *Stat* to *Geomap*
+3. Under *Base Layer*, change the Layer type to *Open Street Map*
+4. CRITICAL! Since this is a point-in-time view, change the *Query Type* of your formula from Range to __Instant__.
+5. Scroll up to *Data layer* and click on Layer 1, *markers*.  For your markers on the map, you want to do a lookup of the country by geoip_country_code. To do this, under *Location*, click *Lookup* and then choose Lookup Field, geoip_country_code.  You should now see data on your map. But we're not done!
+6. Under Styles...Size, Change from *Fixed Value* to *geohits*.
+7. Change Symbol from Circles to Cross.
+8. Change color from Fixed to *value #geohits*.
+9. 
 ## Convert the Server Request Rates panel from an old "graph" panel to a Stat Panel
 Like our first panel, we want context to understand what good looks like.  Knowing our internal data patterns, we want to avoid service overload conditions where end-user performance can be affected.  
 1. Edit the *Server Request Rates* panel (click on the panel's title and then *Edit*)
