@@ -48,7 +48,7 @@ This one is a mess. I've been told that this data is from OSS Loki, our logging 
 6. Under Styles...Size, Change from *Fixed Value* to *geohits*.
 7. Change Symbol from Circles to Cross.
 8. Change color from Fixed to *value #geohits*.
-9. 
+9. Go to Thresholds and set the color of the Base to Orange; for a threshold of 10, set the color to Yellow; add a 3rd threshold of 20, setting the color to Blue.
 ## Convert the Server Request Rates panel from an old "graph" panel to a Stat Panel
 Like our first panel, we want context to understand what good looks like.  Knowing our internal data patterns, we want to avoid service overload conditions where end-user performance can be affected.  
 1. Edit the *Server Request Rates* panel (click on the panel's title and then *Edit*)
