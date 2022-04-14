@@ -22,6 +22,24 @@ The value mapping settings should look like this:
 ![Value Mappings](img/value-mappings.png)
 5.  Change the Panel Title to *SLO Status (Errors) per Data Center*
 6.  Click on *Apply*
+## Convert the K8s Service Status panel from a table to a Polystat Panel
+This table is showing us tons of information that we already know.  The original goal of this table was to show a state of 1 (UP) or 0 (DOWN) for each of our service containers.   Our new goal is to simplify the presentation of the information using a *polystat* panel.  
+1. Edit the *K8s Service Status* panel (click on the panel's title and then *Edit*)
+2. Switch the Visualization Type from *Table* to *Polystat*
+* You will notice that all of the rows have been aggregated into one average of all values.  To separate our data per container, change the formula's *Format* from Table to Time Series.
+3. Under Options...Global, change Decimals from 2 to 0 as the *Instant* value will always be a 0 or 1.
+4. Change the Polygon Border Color to Transparent.
+5. Under Thresholds, click on *Add Threshold*.  
+* For T1, leave value of 0, but change Color Mode from *ok* to *critical*.  Change the Color from Red to Orange.
+* For T2, set value to 1 for Color Mode *ok*.  Change the Color from Green to Blue.
+7. At the bottom, click on *Add a value mapping*. 
+* set value of 1 to *UP*.
+* add a 2nd value mapping with 0 set to *DOWN*.
+Click apply.  The panel should look similar to what we have below.
+![K8s Service Status](img/k8s-service-status.png)
+
+## Convert the Customer Activity panel from a stat panel to a Geomap
+
 
 ## Convert the Server Request Rates panel from an old "graph" panel to a Stat Panel
 Like our first panel, we want context to understand what good looks like.  Knowing our internal data patterns, we want to avoid service overload conditions where end-user performance can be affected.  
@@ -34,4 +52,5 @@ Like our first panel, we want context to understand what good looks like.  Knowi
 * Change the base color from Green to Blue
 * Change the 2nd color from Red to Yellow
 * Add a third threshold level, 90.  Set color to Orange.
-
+Below is what your panel should look like:
+![Server Request Rates](img/webserver-request-rates.png)
