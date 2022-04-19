@@ -5,7 +5,7 @@ Go to the magnifying glass icon in the left menu and search for "Dull".  Choose 
 
 *This dashboard does have useful information as it contains RED metrics - request rates, errors, and duration/latency - for our service; and it contains state information for the underlying pods as well as end-user activity from a geographic lens.  Our aim is to make the information on the dashboard easier to understand and more visually appealing.*
 
-## Convert the Error Rates panel from an old "graph" panel to a Stat Panel
+## Convert the Error Rates panel from a deprecated "graph" panel to a Stat Panel
 We will edit the Error Rates panel first.  We want to add context to what error rates are acceptable, in a danger zone, or are in violation of an internal Service Level Objective (SLO).
 ![Error Rate Panel](img/error-rate-panel.png)
 1. Edit the *Error Rates* panel (click on the panel's title and then *Edit*)
@@ -49,6 +49,23 @@ This one is a mess. I've been told that this data is from OSS Loki, our logging 
 7. Change Symbol from Circles to Cross.
 8. Change color from Fixed to *value #geohits*.
 9. Go to Thresholds and set the color of the Base to Orange; for a threshold of 10, set the color to Yellow; add a 3rd threshold of 20, setting the color to Blue.
+## Update the Latency for Sockshop App panel from an old "graph" panel to a Time Series Panel
+Since this service latency graph is viewed by dozens of people, we know statistically that at least 2 people viewing this graph are colorblind.  That said, the Product owner of Sockshop called the colors 'uninspiring'.  You also notice that the legend is rough around the edges.
+
+1. Edit the *Latency for Sockshop App* panel (click on the panel's title and then *Edit*)
+2. Switch the Visualization Type from *Graph (Old)* to *Time Series*
+3. Let's fix the legend first.  
+* In the legend field, enter {{ job }}.  You will notice that the name of the job is displayed instead of the raw key/value pair.  But we still don't like the fact that the namespace of _development_ still appears.  So, let's use a _transformation_ to rename our fields.
+* Click on _Transform_ and then _Rename by Regex_.  For match, let's do 2 string captures - before and after the */*. 
+* For match, type in *(.+)\/(.+)*
+* In this case, we just want to use the 2nd capture group, and so for the _Replace_ field, type in *$2*
+4. Someone else said this graph, denoted in seconds, would be easier to understand if it were in milliseconds.  
+* Let's change the formula by adding ** 1000* to the end of the formula.
+* Add a unit to the y-axis.  Under the panel's search options (top right), type in _Unit_.  For the unit, use _Time / Milliseconds (ms)_.
+5. We now want to make it easier for our colorblind
+Below is what your panel should look like:
+![Sockshop App](img/sockshop.png)
+
 ## Convert the Server Request Rates panel from an old "graph" panel to a Stat Panel
 Like our first panel, we want context to understand what good looks like.  Knowing our internal data patterns, we want to avoid service overload conditions where end-user performance can be affected.  
 1. Edit the *Server Request Rates* panel (click on the panel's title and then *Edit*)
