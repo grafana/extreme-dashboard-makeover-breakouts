@@ -63,6 +63,12 @@ Since this service latency graph is viewed by dozens of people, we know statisti
 * Let's change the formula by adding ** 1000* to the end of the formula.
 * Add a unit to the y-axis.  Under the panel's search options (top right), type in _Unit_.  For the unit, use _Time / Milliseconds (ms)_.
 5. We now want to make it easier for our colorblind
+* For all lines, under *Graph Styles*, choose a Line Width of 2 and a Fill opacity of 0
+* Let's make dataset _user_ a dotted line.  In the upper right, click on *Overrides* and _Add field override_. 
+* Choose fields with name _carts_ and Add override property.  In search, find _Graph styles > Line style_. Change from Solid to *Dots*.
+* Let's make dataset _catalogue_ a dashed line. Add an override for Fields with name _catalogue_, adding a Line Style override. For the dash pattern, we want to see short-long-short, and so to do this, we choose *30,3,3* in the dropdown.
+* We will make fields _user_ and _payment_ dashed lines as well. For _user_, first add an override for line width, setting it to 1.  Then, use a *10,10* dash line style.  For _payment_, use a *5,10* dash line style.
+* We will keep orders as-is.
 Below is what your panel should look like:
 ![Sockshop App](img/sockshop.png)
 
@@ -79,3 +85,9 @@ Like our first panel, we want context to understand what good looks like.  Knowi
 * Add a third threshold level, 90.  Set color to Orange.
 Below is what your panel should look like:
 ![Server Request Rates](img/webserver-request-rates.png)
+
+Add our company logo
+Finally we'd like to add our company logo.  To do so, add a *Text* panel.
+For _mode_ in the bottom right, choose HTML.
+Remove the default text and paste in the following HTML:
+```<center><img align="center" src="https://i.pinimg.com/originals/74/a0/a5/74a0a51848fb3717c671598dc675c654.jpg" ></center>```
