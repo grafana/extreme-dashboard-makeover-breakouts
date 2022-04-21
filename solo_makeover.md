@@ -70,7 +70,7 @@ Since this service latency graph is viewed by dozens of people, we know statisti
 * We will make fields _user_ and _payment_ dashed lines as well. For _user_, first add an override for line width, setting it to 1.  Then, use a *10,10* dash line style.  For _payment_, use a *5,10* dash line style.
 * We will keep orders as-is.
 Below is what your panel should look like:
-![Sockshop App](img/sockshop.png)
+![Sockshop App](img/sockshop-app.png)
 
 ## Convert the Server Request Rates panel from an old "graph" panel to a Stat Panel
 Like our first panel, we want context to understand what good looks like.  Knowing our internal data patterns, we want to avoid service overload conditions where end-user performance can be affected.  
