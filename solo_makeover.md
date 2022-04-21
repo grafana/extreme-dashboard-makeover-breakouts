@@ -46,7 +46,7 @@ This one is a mess. I've been told that this data is from OSS Loki, our logging 
 4. CRITICAL! Since this is a point-in-time view, change the *Query Type* of your formula from Range to __Instant__.
 5. Scroll up to *Data layer* and click on Layer 1, *markers*.  For your markers on the map, you want to do a lookup of the country by geoip_country_code. To do this, under *Location*, click *Lookup* and then choose Lookup Field, geoip_country_code.  You should now see data on your map. But we're not done!
 6. Under Styles...Size, Change from *Fixed Value* to *geohits*.
-7. Change Symbol from Circles to Cross.
+7. Change Symbol from Circles to Star.
 8. Change color from Fixed to *value #geohits*.
 9. Go to Thresholds and set the color of the Base to Orange; for a threshold of 10, set the color to Yellow; add a 3rd threshold of 20, setting the color to Blue.
 ## Update the Latency for Sockshop App panel from an old "graph" panel to a Time Series Panel
@@ -68,9 +68,10 @@ Since this service latency graph is viewed by dozens of people, we know statisti
 * Choose fields with name _carts_ and Add override property.  In search, find _Graph styles > Line style_. Change from Solid to *Dots*.
 * Let's make dataset _catalogue_ a dashed line. Add an override for Fields with name _catalogue_, adding a Line Style override. For the dash pattern, we want to see short-long-short, and so to do this, we choose *30,3,3* in the dropdown.
 * We will make fields _user_ and _payment_ dashed lines as well. For _user_, first add an override for line width, setting it to 1.  Then, use a *10,10* dash line style.  For _payment_, use a *5,10* dash line style.
-* We will keep orders as-is.
+* We will keep orders as-is.  Click apply.
 Below is what your panel should look like:
 ![Sockshop App](img/sockshop-app.png)
+6. One more fix!  We notice for your non-colorblind people that the two blue colors are just too similar, and we want to make it obvious.  So, right from the dashboard, we click on the blue line associated with _user_, and a set of default colors appear.  Choose Purple.
 
 ## Convert the Server Request Rates panel from an old "graph" panel to a Stat Panel
 Like our first panel, we want context to understand what good looks like.  Knowing our internal data patterns, we want to avoid service overload conditions where end-user performance can be affected.  
@@ -86,7 +87,7 @@ Like our first panel, we want context to understand what good looks like.  Knowi
 Below is what your panel should look like:
 ![Server Request Rates](img/webserver-request-rates.png)
 
-Add our company logo
+**Add our company logo**
 Finally we'd like to add our company logo.  To do so, add a *Text* panel.
 For _mode_ in the bottom right, choose HTML.
 Remove the default text and paste in the following HTML:
