@@ -91,3 +91,4 @@ Finally we'd like to add our company logo.  To do so, add a *Text* panel.
 For _mode_ in the bottom right, choose HTML.
 Remove the default text and paste in the following HTML:
 ```<center><img align="center" src="https://i.pinimg.com/originals/74/a0/a5/74a0a51848fb3717c671598dc675c654.jpg" ></center>```
+Remove the Panel Title and click Apply.  Size the panel appropriately.
