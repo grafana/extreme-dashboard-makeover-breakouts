@@ -42,13 +42,13 @@ Click apply.  The panel should look similar to what we have below.
 This one is a mess. I've been told that this data is from OSS Loki, our logging tool, and represents the number of hits coming from each Geographic region. It is colorful, but I have a very difficult time interpreting the information.  Let's change the visualization to a map!
 1. Edit the *Customer Activity* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Stat* to *Geomap*
-3. Under *Base Layer*, change the Layer type to *Open Street Map*
-4. CRITICAL! Since this is a point-in-time view, change the *Query Type* of your formula from Range to __Instant__.
+3. Under *Base Layer*, change the Layer type to *ArcGIS MapServer* with a Server instance of *World Ocean*.
+4. CRITICAL! Since this is a point-in-time view, validate your *Query Type* of your formula from Range to __Instant__.
 5. Scroll up to *Data layer* and click on Layer 1, *markers*.  For your markers on the map, you want to do a lookup of the country by geoip_country_code. To do this, under *Location*, click *Lookup* and then choose Lookup Field, geoip_country_code.  You should now see data on your map. But we're not done!
-6. Under Styles...Size, Change from *Fixed Value* to *geohits*.
+6. Under Styles...Size, Change from *Fixed Value* to *Value #Hits by geolocation*.
 7. Change Symbol from Circles to Star.
-8. Change color from Fixed to *value #geohits*.
-9. Go to Thresholds and set the color of the Base to Orange; for a threshold of 10, set the color to Yellow; add a 3rd threshold of 20, setting the color to Blue.
+8. Change color from Fixed to *Value #Hits by geolocation*.
+9. Go to Thresholds and validate the color of the Base to Orange; for a threshold of 10, the color should be Yellow; and for the 3rd threshold of 20,  the color should be Blue.
 ## Update the Latency for Sockshop App panel from an old "graph" panel to a Time Series Panel
 Since this service latency graph is viewed by dozens of people, we know statistically that at least 2 people viewing this graph are colorblind.  That said, the Product owner of Sockshop called the colors 'uninspiring'.  You also notice that the legend is rough around the edges.
 
