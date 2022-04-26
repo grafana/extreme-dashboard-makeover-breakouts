@@ -102,6 +102,7 @@ However, you want to add a similar drilldown to the _SLO Status (Errors) per Dat
 * For Title, type in _Sockshop Service Details_.
 * For URL, paste in `/d/b2kdXLwnz/sockshop-performance?orgId=1`
 * Select _Open in new tab_ and click save.
+* Now that you have saved your work, click anywhere on the SLO Status (Errors) graph to validate it drills into that other detailed dashboard.
 
 ## Add our company logo
 For a bit of flair, we'd like to add our company logo.  To do so, add a *Text* panel.
