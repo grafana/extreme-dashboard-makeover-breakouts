@@ -62,7 +62,7 @@ Since this service latency graph is viewed by dozens of people, we know statisti
 4. Someone else said this graph, denoted in seconds, would be easier to understand if it were in milliseconds.  
 * Let's change the formula by adding ** 1000* to the end of the formula.
 * Add a unit to the y-axis.  Under the panel's search options (top right), type in _Unit_.  For the unit, use _Time / Milliseconds (ms)_.
-5. We now want to make it easier for our colorblind
+5. We now want to make it easier for our colorblind colleagues to read.
 * For all lines, under *Graph Styles*, choose a Line Width of 2 and a Fill opacity of 0
 * Let's make dataset _user_ a dotted line.  In the upper right, click on *Overrides* and _Add field override_. 
 * Choose fields with name _carts_ and Add override property.  In search, find _Graph styles > Line style_. Change from Solid to *Dots*.
@@ -73,7 +73,7 @@ Below is what your panel should look like:
 ![Sockshop App](img/sockshop-app.png)
 6. One more fix!  We notice for your non-colorblind people that the two blue colors are just too similar, and we want to make it obvious.  So, right from the dashboard, we click on the blue line associated with _user_, and a set of default colors appear.  Choose Purple.
 
-## Convert the Server Request Rates panel from an old "graph" panel to a Stat Panel
+## Convert the Server Request Rates panel from an old "graph" panel to a Bar Gauge Panel
 Like our first panel, we want context to understand what good looks like.  Knowing our internal data patterns, we want to avoid service overload conditions where end-user performance can be affected.  
 1. Edit the *Server Request Rates* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Graph (Old)* to *Bar Gauge*
@@ -97,11 +97,11 @@ Remembering that someone saved some valuable service KPI panels to your Panel Li
 After adding these panels, you notice in the top left they all have *Panel drilldown* links going to another more detailed dashboard...score!  That will save us a ton of time building the detailed service view.  
 
 However, you want to add a similar drilldown to the _SLO Status (Errors) per Data Center_ panel just in case users don't see the panel links.
-1. Edit the _SLO Status (Errors) per Data Center_ panel and find the category *Data Links* (3rd from the bottom).
+1. Edit the _SLO Status (Errors) per Data Center_ panel and find the category *Data Links* (3rd from the bottom - _not_ Panel Links).
 2. Click _Add Link_ and add the following:
 * For Title, type in _Sockshop Service Details_.
 * For URL, paste in `/d/b2kdXLwnz/sockshop-performance?orgId=1`
-* Select _Open in new tab_ and click save.
+* Select _Open in new tab_ and click save and Apply.
 * Now that you have saved your work, click anywhere on the SLO Status (Errors) graph to validate it drills into that other detailed dashboard.
 
 ## Add our company logo
@@ -109,12 +109,20 @@ For a bit of flair, we'd like to add our company logo.  To do so, add a *Text* p
 For _mode_ in the bottom right, choose HTML.
 Remove the default text and paste in the following HTML:
 ```<center><img align="center" src="https://i.pinimg.com/originals/74/a0/a5/74a0a51848fb3717c671598dc675c654.jpg" ></center>```
-Remove the Panel Title and click Apply.  Size the panel appropriately.
-
+Remove the Panel Title, Click on _Transparent Background_ and click Apply.  Size the panel appropriately.
+## Arrange our panels
 ## Arrange our panels
 Finally, we need to arrange our panels so that the most important graphs are in that Z pattern, spaced appropriately, and properly sized.
 We may need to add some spacing to our dashboard.  To do so, choose the blank text panel we have saved in our library.
-1. Choose _Add Panel_ and then _Add a panel from the Panel Library_. Choose Panel, "Blank Space".
 
-After arranging our panels and adding some space, your dashboard should look something similar to this:
+1. First, let's add a row for our RED metrics (request rates, errors, and duration/latency). 
+*  Click on add panel and Add a New Row.
+*  Change the row title to *Service RED Metrics* and, going left to right, move Service Requests per Second, SLO Status (Errors) per Data Center, and Latency for Sockshop App on the top row.
+2. Add a 2nd row called *Key Performance Indicators*
+* Move the rest of the graphs into this grouping.  In the middle row, going left to right, move Service Apdex, Latency quantiles, and then our logo to this middle row.
+* In the bottom area, we should have K8s Service Status on the left, Infrastucture - Error Score below it, and Customer Activity to the right of those two graphs.
+4. Choose _Add Panel_ and then _Add a panel from the Panel Library_. Choose Panel, "Blank Space".  Add a small row of blank space after our row of Service RED Metrics.
+5. Choose _Add Panel_ and then _Add a panel from the Panel Library_. Choose Panel, "Blank Space".  Add a small row of blank space after our top row of Key Performance Indicators.
+
+After arranging our panels and adding space, your dashboard should look something similar to this:
 ![Final-Dashboard One](img/dashboard-one.png)
