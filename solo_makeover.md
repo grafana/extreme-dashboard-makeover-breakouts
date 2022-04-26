@@ -87,9 +87,33 @@ Like our first panel, we want context to understand what good looks like.  Knowi
 Below is what your panel should look like:
 ![Server Request Rates](img/webserver-request-rates.png)
 
-**Add our company logo**
-Finally we'd like to add our company logo.  To do so, add a *Text* panel.
+## Add existing Library Panels
+Remembering that someone saved some valuable service KPI panels to your Panel Library, adding them will give our users a better picture of how our service is being delivered.
+
+1. Choose _Add Panel_ and then _Add a panel from the Panel Library_. Choose Panel, "Service APDEX".
+2. Repeat this process, choosing panel, "Infrastructure - Error Score".
+3. Repeat this process a third time, choosing panel, "Latency Profile, Sockshop Application".
+
+After adding these panels, you notice in the top left they all have *Panel drilldown* links going to another more detailed dashboard...score!  That will save us a ton of time building the detailed service view.  
+
+However, you want to add a similar drilldown to the _SLO Status (Errors) per Data Center_ panel just in case users don't see the panel links.
+1. Edit the _SLO Status (Errors) per Data Center_ panel and find the category *Data Links* (3rd from the bottom).
+2. Click _Add Link_ and add the following:
+* For Title, type in _Sockshop Service Details_.
+* For URL, paste in `/d/b2kdXLwnz/sockshop-performance?orgId=1`
+* Select _Open in new tab_ and click save.
+
+## Add our company logo
+For a bit of flair, we'd like to add our company logo.  To do so, add a *Text* panel.
 For _mode_ in the bottom right, choose HTML.
 Remove the default text and paste in the following HTML:
 ```<center><img align="center" src="https://i.pinimg.com/originals/74/a0/a5/74a0a51848fb3717c671598dc675c654.jpg" ></center>```
 Remove the Panel Title and click Apply.  Size the panel appropriately.
+
+## Arrange our panels
+Finally, we need to arrange our panels so that the most important graphs are in that Z pattern, spaced appropriately, and properly sized.
+We may need to add some spacing to our dashboard.  To do so, choose the blank text panel we have saved in our library.
+1. Choose _Add Panel_ and then _Add a panel from the Panel Library_. Choose Panel, "Blank Space".
+
+After arranging our panels and adding some space, your dashboard should look something similar to this:
+![Final-Dashboard One](img/dashboard-one.png)
