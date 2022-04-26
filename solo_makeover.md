@@ -3,7 +3,7 @@ We will be revamping the following dashboard.
 ![Dull Dashboard](img/dull-dashboard.png)
 Go to the magnifying glass icon in the left menu and search for "Dull".  Choose the Dull Dashboard.
 
-*This dashboard does have useful information as it contains RED metrics - request rates, errors, and duration/latency - for our service; and it contains state information for the underlying pods as well as end-user activity from a geographic lens.  Our aim is to make the information on the dashboard easier to understand and more visually appealing.*
+*While our existing dashboard already has useful information such as RED metrics - request rates, errors, and duration/latency - for our service as well as state information for the underlying Kubernetes pods and end-user activity from a geographic lens, our aim is to make the information on the dashboard easier to understand and more visually appealing.*
 
 ## Convert the Error Rates panel from a deprecated "graph" panel to a Stat Panel
 We will edit the Error Rates panel first.  We want to add context to what error rates are acceptable, in a danger zone, or are in violation of an internal Service Level Objective (SLO).
