@@ -48,14 +48,14 @@ This one is a mess. I've been told that this data is from OSS Loki, our logging 
 6. Under Styles...Size, Change from *Fixed Value* to *Value #Hits by geolocation*.
 7. Change Symbol from Circles to Star.
 8. Change color from Fixed to *Value #Hits by geolocation*.
-9. Go to Thresholds and validate the color of the Base to Orange; for a threshold of 10, the color should be Yellow; and for the 3rd threshold of 20,  the color should be Blue.
+9. Since the colors of blue and orange seem to blend in a bit much on the map, we need to make them stand out a bit more.  Go to Thresholds and change the base color to Dark Purple; for a threshold of 10, change the color to dark Orange; and delete the 3rd threshold.
 ## Update the Latency for Sockshop App panel from an old "graph" panel to a Time Series Panel
 Since this service latency graph is viewed by dozens of people, we know statistically that at least 2 people viewing this graph are colorblind.  That said, the Product owner of Sockshop called the colors 'uninspiring'.  You also notice that the legend is rough around the edges.
 
 1. Edit the *Latency for Sockshop App* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Graph (Old)* to *Time Series*
 3. Let's fix the legend first.  
-* In the legend field, enter {{ job }}.  You will notice that the name of the job is displayed instead of the raw key/value pair.  But we still don't like the fact that the namespace of _development_ still appears.  So, let's use a _transformation_ to rename our fields.
+* In the legend field (under Options below our formula on the left), change the type from Verbose to Custom and enter {{ job }}.  You will notice that the name of the job is displayed instead of the raw key/value pair.  But we still don't like the fact that the namespace of _development_ still appears.  So, let's use a _transformation_ to rename our fields.
 * Click on _Transform_ and then _Rename by Regex_.  For match, let's do 2 string captures - before and after the */*. 
 * For match, type in *(.+)\/(.+)*
 * In this case, we just want to use the 2nd capture group, and so for the _Replace_ field, type in *$2*
