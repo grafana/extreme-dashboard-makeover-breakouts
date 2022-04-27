@@ -1,4 +1,4 @@
-** KitchenOps !!! **
+# Team Challenge: KitchenOps !!! 
 
 Your team has been recently hired to run your restaurant's KitchenOps program.  The restaurant is so close to its 5th Michelin star, you can taste it!
 One way to attain that 5th star is to deliver consistently perfect results in meal preparation.  This means having complete control over:
