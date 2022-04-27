@@ -10,4 +10,6 @@ One way to attain that 5th star is to deliver consistently perfect results in me
 Being in the 4-star tier, this restaurant has recently invested in IoT telemetry to track these sorts of things, and the restaurant owner's child has already created a set of library panels for these sensors.
 All we have to do is present them in a way that is easy for the kitchen staff to understand and attractive enough -  if they were to peek into the kitchen - an anonymous Michelin inspector! 
 
+At the end of this exercise, we will vote on who has the best dashboard.  Please name your team so that everyone knows who to vote for....good luck!
+
 
