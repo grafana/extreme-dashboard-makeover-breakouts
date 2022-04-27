@@ -7,10 +7,22 @@ One way to attain that 5th star is to deliver consistently perfect results in me
 * Consistency of food preparation times per meal time
 * and more.
 
-Being in the 4-star tier, this restaurant has recently invested in IoT telemetry to track these sorts of things, and the restaurant owner's child has already created a set of library panels for these sensors.
+Being in the 4-star tier, this restaurant has recently invested in IoT telemetry to track these sorts of things, and the restaurant owner's child Lucky has already created a set of library panels for these sensors. Lucky is sending all data to Google Sheets for now.
+
 All we have to do is present them in a way that is easy for the kitchen staff to understand and attractive enough -  if they were to peek into the kitchen - an anonymous Michelin inspector! 
 
 At the end of this exercise, everyone will vote on who has the best dashboard (you cannot vote for your own dashboard).  Please name your team so that everyone knows who to vote for....good luck!
+
+A couple of kitchen standards:
+1. While ground spices are typically replaced at 6 months and other spices should be replaced every 2-4 years, this kitchen tries to keep spices for no more than *4 months* - when they remember.
+ 
+2. The grill needs to kept at *387 degrees*, plus or minus 7 degrees for our signature "Bodacious Burger"
+
+3. We need to track how long each chef cooks our signature, pan-seared "Choice Coho (Salmon)".  Since we individually choose each salmon fillet for consistent thickness, freshness and quality, we are still getting inconsistent ratings from our guests.  Each side needs to be cooked for *150 seconds* - no more, no less.
+
+4. The refrigerator needs to stay between *35 and 38 degrees*.  Some unknown chef has nightmares from a former food safety violation when their previous restaurant's temperature was found to be 41 degress (a food safety violation) and now keeps turning down the temperature, making the eggs freeze on occasion.
+
+5. The lobster mac n' cheese is so popular that one of the ovens is now the dedicated "MacOven".  It stays at *375 degrees* for best results but can vary 25 degrees in either direction.
 
 The following library panels have been created as starting points:
 
