@@ -12,4 +12,5 @@ All we have to do is present them in a way that is easy for the kitchen staff to
 
 At the end of this exercise, everyone will vote on who has the best dashboard (you cannot vote for your own dashboard).  Please name your team so that everyone knows who to vote for....good luck!
 
+The following library panels have been created as starting points:
 
