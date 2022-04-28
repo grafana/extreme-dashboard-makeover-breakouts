@@ -24,7 +24,11 @@ A couple of kitchen standards:
 
 5. The lobster mac n' cheese is so popular that one of the ovens is now the dedicated "MacOven".  It stays at *375 degrees* for best results but can vary 25 degrees in either direction.
 
-6. You've been told that management loves "spring" colors. 
+6. Our restaurant's multicolor mood lighting is incredible. Let's make sure 100% of the lights are working.
+
+7. Let's make sure the room temperature is 70 degrees (F) in all 8 zones of our dining rooms.
+
+8. You've been told that management loves "spring" colors. 
 
 
 The following library panels have been created as starting points:
