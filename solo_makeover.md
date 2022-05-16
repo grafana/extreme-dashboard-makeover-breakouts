@@ -13,7 +13,8 @@ We will edit the Error Rates panel first.  We want to add context to what error 
 3. Under *Stat styles*:
 * Change Orientation from Auto to Horizontal.
 * Change Color Mode from Value to Background.
-4. Click *Add value mappings*
+4. Expand the 'Value Mappings' section and then click *Add value mappings*
+* There is a default setting that null maps to N/A. Click on *X* to remove that default.
 * Click *Add a New Mapping* and then *Range*. Set range from 0 to 1 with Display Text of *OK*. Set color to Blue.
 * Click *Add a New Mapping* and then *Range*. Set range from 1 to 2 with Display Text of *Service Degraded*. Set color to Yellow.
 * Click *Add a New Mapping* and then *Range*. Set range from 2 to 100 with Display Text of *SLO Violation*. Set color to Orange.
@@ -27,18 +28,18 @@ This table is showing us tons of information that we already know.  The original
 1. Edit the *K8s Service Status* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Table* to *Polystat*
 * You will notice that all of the rows have been aggregated into one average of all values.  To separate our data per container, change the formula's *Format* from Table to Time Series.  In newer versions of the Grafana UI, this option is under *Options*.
-![K8s Service Status](img/k8s-service-status.png)
-
-3. Under Options...Global, change Decimals from 2 to 0 as the *Instant* value will always be a 0 or 1.
+![Table to Timeseries](img/table-to-timeseries.png)
+3. Under Options...Global on the right-hand side (5th group in the Polystat settings), change Decimals from 2 to 0 as the *Instant* value will always be a 0 or 1.
 4. Change the Polygon Border Color to Transparent.
 5. Under Thresholds, click on *Add Threshold*.  
 * For T1, leave value of 0, but change Color Mode from *ok* to *critical*.  Change the Color from Red to Orange.
+* Click *Add Threshold* to add a second threshold level. A 'T2' Threshold will appear.
 * For T2, set value to 1 for Color Mode *ok*.  Change the Color from Green to Blue.
 7. At the bottom, click on *Add a value mapping*. 
 * set value of 1 to *UP*.
 * add a 2nd value mapping with 0 set to *DOWN*.
 Click apply.  The panel should look similar to what we have below.
-![Table to Timeseries](img/table-to-timeseries.png)
+![K8s Service Status](img/k8s-service-status.png)
 
 ## Convert the Customer Activity panel from a stat panel to a Geomap
 This one is a mess. I've been told that this data is from OSS Loki, our logging tool, and represents the number of hits coming from each Geographic region. It is colorful, but I have a very difficult time interpreting the information.  Let's change the visualization to a map!
