@@ -69,12 +69,12 @@ Since this service latency graph is viewed by dozens of people, we know statisti
 2. Switch the Visualization Type from *Graph (Old)* to *Time Series*
 3. Let's fix the legend first.  
 * In the legend field (under Options below our formula on the left), change the type from Verbose to Custom and enter {{ job }}.  You will notice that the name of the job is displayed instead of the raw key/value pair.  But we still don't like the fact that the namespace of _development_ still appears.  So, let's use a _transformation_ to rename our fields.
-* Click on _Transform_ and then _Rename by Regex_.  For match, let's do 2 string captures - before and after the */*. 
-* For match, type in *(.+)\/(.+)*
-* In this case, we just want to use the 2nd capture group, and so for the _Replace_ field, type in *$2*
+* Click on _Transform_ and then _Rename by Regex_ (scroll down the list or use the 'Add transformation' search).  For match, let's do 2 string captures - before and after the */*. 
+* For match, type in *.+/(.+)*
+* For the _Replace_ field, type in *$1*
 4. Someone else said this graph, denoted in seconds, would be easier to understand if it were in milliseconds.  
-* Let's change the formula by adding ** 1000* to the end of the formula.
-* Add a unit to the y-axis.  Under the panel's search options (top right), type in _Unit_.  For the unit, use _Time / Milliseconds (ms)_.
+* Let's change the formula on the left hand side by adding ** 1000* to the end of the formula.
+* Add a unit to the y-axis.  Under the panel's search options (top right), type in _Unit_.  For the unit, use _Time / milliseconds (ms)_.
 5. We now want to make it easier for our colorblind colleagues to read.
 * For all lines, under *Graph Styles*, choose a Line Width of 2 and a Fill opacity of 0
 * Let's make dataset _user_ a dotted line.  In the upper right, click on *Overrides* and _Add field override_. 
