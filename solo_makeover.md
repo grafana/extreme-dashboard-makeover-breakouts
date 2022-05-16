@@ -64,7 +64,6 @@ This one is a mess. I've been told that this data is from OSS Loki, our logging 
 16. Click Apply to the leave edit mode of that Panel.
 ## Update the Latency for Sockshop App panel from an old "graph" panel to a Time Series Panel
 Since this service latency graph is viewed by dozens of people, we know statistically that at least 2 people viewing this graph are colorblind.  That said, the Product owner of Sockshop called the colors 'uninspiring'.  You also notice that the legend is rough around the edges.
-
 1. Edit the *Latency for Sockshop App* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Graph (Old)* to *Time Series*
 3. Let's fix the legend first.  
@@ -76,7 +75,8 @@ Since this service latency graph is viewed by dozens of people, we know statisti
 * Let's change the formula on the left hand side by adding ** 1000* to the end of the formula.
 * Add a unit to the y-axis.  Under the panel's search options (top right), type in _Unit_.  For the unit, use _Time / milliseconds (ms)_.
 5. We now want to make it easier for our colorblind colleagues to read.
-* For all lines, under *Graph Styles*, choose a Line Width of 2 and a Fill opacity of 0
+* For all lines in the graph: Use the  *Graph Styles*, choose a Line Width of 2 and a Fill opacity of 0
+![Graph styles](img/Graph-styles.png)
 * Let's make dataset _user_ a dotted line.  In the upper right, click on *Overrides* and _Add field override_. 
 * Choose fields with name _carts_ and Add override property.  In search, find _Graph styles > Line style_. Change from Solid to *Dots*.
 * Let's make dataset _catalogue_ a dashed line. Add an override for Fields with name _catalogue_, adding a Line Style override. For the dash pattern, we want to see short-long-short, and so to do this, we choose *30,3,3* in the dropdown.
