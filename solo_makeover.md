@@ -38,22 +38,30 @@ This table is showing us tons of information that we already know.  The original
 7. At the bottom, click on *Add a value mapping*. 
 * set value of 1 to *UP*.
 * add a 2nd value mapping with 0 set to *DOWN*.
-Click apply.  The panel should look similar to what we have below.
+8, Click Apply to the leave edit mode of that Panel.  
+The panel should look similar to what we have below.
 ![K8s Service Status](img/k8s-service-status.png)
 
 ## Convert the Customer Activity panel from a stat panel to a Geomap
 This one is a mess. I've been told that this data is from OSS Loki, our logging tool, and represents the number of hits coming from each Geographic region. It is colorful, but I have a very difficult time interpreting the information.  Let's change the visualization to a map!
 1. Edit the *Customer Activity* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Stat* to *Geomap*
-3. Using the *Search options* at the top, Find "Base layer".  
+3. Using the *Search options* in the top right, Find "Base layer".  
 4. Under *Base layer*, change the Layer type to *ArcGIS MapServer* with a Server instance of *World Ocean*.
+![Base layer](img/Base-layer.png)
 5. Click the 'x' on the Search bar to clear your Base Layer search.
-6. CRITICAL! Since this is a point-in-time view, validate your *Query Type* of your formula from Range to __Instant__.
-7. Scroll up to *Data layer* and click on Layer 1, *markers*.  For your markers on the map, you want to do a lookup of the country by geoip_country_code. To do this, under *Location*, click *Lookup* and then choose Lookup Field, geoip_country_code.  You should now see data on your map. But we're not done!
-8. Under Styles...Size, Change from *Fixed Value* to *Value #Hits by geolocation*.
-9. Change Symbol from Circles to Star.
-10. Change color from Fixed to *Value #Hits by geolocation*.
-11. Since the colors of blue and orange seem to blend in a bit much on the map, we need to make them stand out a bit more.  Go to Thresholds and change the base color to Dark Purple; for a threshold of 10, change the color to dark Orange; and delete the 3rd threshold.
+6. CRITICAL! Since this is a point-in-time view, validate the *Query Type* of the formula is __Instant__ and not Range.
+![Query Type](img/Query-Type.png)
+7. We want to add markers on the map.  Again using the *Search options* in the top right, find *Data layer* and click on Layer 1 *markers*. We want a lookup of the country by our geoip_country_code field. 
+8. To do this, under *Location*, click *Lookup* and then choose Lookup Field, geoip_country_code.  You should now see data on your map. But we're not done!
+9. Under Styles...Size, Change from *Fixed Value* to *Value #Hits by geolocation*.
+10. Change Symbol from Circles to Star. Do this by selecting the circle.svg text, selecting Star and hitting 'Select'.
+11. Change color from Fixed to *Value #Hits by geolocation*.
+12. Since the colors of blue and orange seem to blend in a bit much on the map, we need to make them stand out a bit more.  
+13. Using the *Search options* in the top right, Find Thresholds. Change the base color to Dark Purple by clicking on the orange circle, then clicking on dark purple, and then click outside of that popup window. 
+14. For a threshold of 10, change the color to dark Orange using the same method as above.
+15. Delete the 3rd threshold value of 20 by clicking on its garbage can icon.
+16. Click Apply to the leave edit mode of that Panel.
 ## Update the Latency for Sockshop App panel from an old "graph" panel to a Time Series Panel
 Since this service latency graph is viewed by dozens of people, we know statistically that at least 2 people viewing this graph are colorblind.  That said, the Product owner of Sockshop called the colors 'uninspiring'.  You also notice that the legend is rough around the edges.
 
