@@ -26,7 +26,9 @@ The value mapping settings should look like this:
 This table is showing us tons of information that we already know.  The original goal of this table was to show a state of 1 (UP) or 0 (DOWN) for each of our service containers.   Our new goal is to simplify the presentation of the information using a *polystat* panel.  
 1. Edit the *K8s Service Status* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Table* to *Polystat*
-* You will notice that all of the rows have been aggregated into one average of all values.  To separate our data per container, change the formula's *Format* from Table to Time Series.
+* You will notice that all of the rows have been aggregated into one average of all values.  To separate our data per container, change the formula's *Format* from Table to Time Series.  In newer versions of the Grafana UI, this option is under *Options*.
+![K8s Service Status](img/k8s-service-status.png)
+
 3. Under Options...Global, change Decimals from 2 to 0 as the *Instant* value will always be a 0 or 1.
 4. Change the Polygon Border Color to Transparent.
 5. Under Thresholds, click on *Add Threshold*.  
@@ -36,7 +38,7 @@ This table is showing us tons of information that we already know.  The original
 * set value of 1 to *UP*.
 * add a 2nd value mapping with 0 set to *DOWN*.
 Click apply.  The panel should look similar to what we have below.
-![K8s Service Status](img/k8s-service-status.png)
+![Table to Timeseries](img/table-to-timeseries.png)
 
 ## Convert the Customer Activity panel from a stat panel to a Geomap
 This one is a mess. I've been told that this data is from OSS Loki, our logging tool, and represents the number of hits coming from each Geographic region. It is colorful, but I have a very difficult time interpreting the information.  Let's change the visualization to a map!
