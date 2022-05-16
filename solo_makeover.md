@@ -45,13 +45,15 @@ Click apply.  The panel should look similar to what we have below.
 This one is a mess. I've been told that this data is from OSS Loki, our logging tool, and represents the number of hits coming from each Geographic region. It is colorful, but I have a very difficult time interpreting the information.  Let's change the visualization to a map!
 1. Edit the *Customer Activity* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Stat* to *Geomap*
-3. Under *Base Layer*, change the Layer type to *ArcGIS MapServer* with a Server instance of *World Ocean*.
-4. CRITICAL! Since this is a point-in-time view, validate your *Query Type* of your formula from Range to __Instant__.
-5. Scroll up to *Data layer* and click on Layer 1, *markers*.  For your markers on the map, you want to do a lookup of the country by geoip_country_code. To do this, under *Location*, click *Lookup* and then choose Lookup Field, geoip_country_code.  You should now see data on your map. But we're not done!
-6. Under Styles...Size, Change from *Fixed Value* to *Value #Hits by geolocation*.
-7. Change Symbol from Circles to Star.
-8. Change color from Fixed to *Value #Hits by geolocation*.
-9. Since the colors of blue and orange seem to blend in a bit much on the map, we need to make them stand out a bit more.  Go to Thresholds and change the base color to Dark Purple; for a threshold of 10, change the color to dark Orange; and delete the 3rd threshold.
+3. Using the *Search options* at the top, Find "Base layer".  
+4. Under *Base layer*, change the Layer type to *ArcGIS MapServer* with a Server instance of *World Ocean*.
+5. Click the 'x' on the Search bar to clear your Base Layer search.
+6. CRITICAL! Since this is a point-in-time view, validate your *Query Type* of your formula from Range to __Instant__.
+7. Scroll up to *Data layer* and click on Layer 1, *markers*.  For your markers on the map, you want to do a lookup of the country by geoip_country_code. To do this, under *Location*, click *Lookup* and then choose Lookup Field, geoip_country_code.  You should now see data on your map. But we're not done!
+8. Under Styles...Size, Change from *Fixed Value* to *Value #Hits by geolocation*.
+9. Change Symbol from Circles to Star.
+10. Change color from Fixed to *Value #Hits by geolocation*.
+11. Since the colors of blue and orange seem to blend in a bit much on the map, we need to make them stand out a bit more.  Go to Thresholds and change the base color to Dark Purple; for a threshold of 10, change the color to dark Orange; and delete the 3rd threshold.
 ## Update the Latency for Sockshop App panel from an old "graph" panel to a Time Series Panel
 Since this service latency graph is viewed by dozens of people, we know statistically that at least 2 people viewing this graph are colorblind.  That said, the Product owner of Sockshop called the colors 'uninspiring'.  You also notice that the legend is rough around the edges.
 
