@@ -77,15 +77,15 @@ Since this service latency graph is viewed by dozens of people, we know statisti
 5. We now want to make it easier for our colorblind colleagues to read.
 * For all lines in the graph: Use the  *Graph Styles*, choose a Line Width of 2 and a Fill opacity of 0
 ![Graph styles](img/Graph-styles.png)
-* Let's make dataset _user_ a dotted line.  In the upper right, click on *Overrides* and _Add field override_. 
-* Choose fields with name _carts_ and Add override property.  In search, find _Graph styles > Line style_. Change from Solid to *Dots*.
-* Let's make dataset _catalogue_ a dashed line. Add an override for Fields with name _catalogue_, adding a Line Style override. For the dash pattern, we want to see short-long-short, and so to do this, we choose *30,3,3* in the dropdown.
-* We will make fields _user_ and _payment_ dashed lines as well. For _user_, first add an override for line width, setting it to 1.  Then, use a *10,10* dash line style.  For _payment_, use a *5,10* dash line style.
-* We will keep orders as-is.  Click apply.
+* Let's make dataset _user_ a dashed line.  In the upper right, click on *Overrides* and _Add field override_. Then, choose "Fields with Name" _user_. Next, add override property _Graph styles > Line style_. Change from Solid to *Dash*. Keep *10,10* as the *line,space* setting. 
+* We will make field _payment_ a dashed line as well. Again, click on _Add field override_, choosing "Fields with Name" _payment_. Next, add override property _Graph styles > Line style_. Change from Solid to *Dash*. Use a *5,10* dash line style.  
+* Let's make dataset _catalogue_ a dashed line. Add an override for Fields with name _catalogue_, adding a Line Style override. For the dash pattern, we want to see long-short-short, and so to do this, we choose *30,3,3*, the last item in the dropdown.
+* Choose field with name _carts_ and Add override property.  In search, find _Graph styles > Line style_. Change from Solid to *Dots* and keep the *0,10* *line,space* setting.
+* We will keep _orders_ as-is.  Click apply.
 Below is what your panel should look like:
 ![Sockshop App](img/sockshop-app.png)
-6. One more fix!  We notice for your non-colorblind people that the two blue colors are just too similar, and we want to make it obvious.  So, right from the dashboard, we click on the blue line associated with _user_, and a set of default colors appear.  Choose Purple.
-
+6. One more fix!  We notice that the two blue colors are just too similar, and we want to make it obvious.  So, right from the dashboard, we click on the blue line associated with _user_ in the legend, and a set of default colors appear.  Choose Purple.
+Save the dashboard.
 ## Convert the Server Request Rates panel from an old "graph" panel to a Bar Gauge Panel
 Like our first panel, we want context to understand what good looks like.  Knowing our internal data patterns, we want to avoid service overload conditions where end-user performance can be affected.  
 1. Edit the *Server Request Rates* panel (click on the panel's title and then *Edit*)
