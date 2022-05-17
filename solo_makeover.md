@@ -5,7 +5,7 @@ Go to the magnifying glass icon in the left menu and search for "Dull".  Choose 
 
 *While our existing dashboard already has useful information such as RED metrics - request rates, errors, and duration/latency - for our service as well as state information for the underlying Kubernetes pods and end-user activity from a geographic lens, our aim is to make the information on the dashboard easier to understand and more visually appealing.*
 
-## Convert the Error Rates panel from a deprecated "graph" panel to a Stat Panel
+## Convert the 'Error Rates' panel from a deprecated "graph" panel to a stat panel
 We will edit the Error Rates panel first.  We want to add context to what error rates are acceptable, in a danger zone, or are in violation of an internal Service Level Objective (SLO).
 ![Error Rate Panel](img/error-rate-panel.png)
 1. Edit the *Error Rates* panel (click on the panel's title and then *Edit*)
@@ -21,9 +21,9 @@ We will edit the Error Rates panel first.  We want to add context to what error 
 * Click on Update
 The value mapping settings should look like this:
 ![Value Mappings](img/value-mappings.png)
-5.  Change the Panel Title to *SLO Status (Errors) per Data Center*
+5.  Change the Panel Title to * SLO Status(Errors) per Data Center*
 6.  Click on *Apply*
-## Convert the K8s Service Status panel from a table to a Polystat Panel
+## Convert the 'K8s Service Status' panel from a table to a polystat panel
 This table is showing us tons of information that we already know.  The original goal of this table was to show a state of 1 (UP) or 0 (DOWN) for each of our service containers.   Our new goal is to simplify the presentation of the information using a *polystat* panel.  
 1. Edit the *K8s Service Status* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Table* to *Polystat*
@@ -42,7 +42,7 @@ This table is showing us tons of information that we already know.  The original
 The panel should look similar to what we have below.
 ![K8s Service Status](img/k8s-service-status.png)
 
-## Convert the Customer Activity panel from a stat panel to a Geomap
+## Convert the 'Customer Activity' panel from a stat panel to a geomap
 This one is a mess. I've been told that this data is from OSS Loki, our logging tool, and represents the number of hits coming from each Geographic region. It is colorful, but I have a very difficult time interpreting the information.  Let's change the visualization to a map!
 1. Edit the *Customer Activity* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Stat* to *Geomap*
@@ -62,7 +62,7 @@ This one is a mess. I've been told that this data is from OSS Loki, our logging 
 14. For a threshold of 10, change the color to dark Orange using the same method as above.
 15. Delete the 3rd threshold value of 20 by clicking on its garbage can icon.
 16. Click Apply to the leave edit mode of that Panel.
-## Update the Latency for Sockshop App panel from an old "graph" panel to a Time Series Panel
+## Update the 'Latency for Sockshop App' panel from an old "graph" panel to a time series panel
 Since this service latency graph is viewed by dozens of people, we know statistically that at least 2 people viewing this graph are colorblind.  That said, the Product owner of Sockshop called the colors 'uninspiring'.  You also notice that the legend is rough around the edges.
 1. Edit the *Latency for Sockshop App* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Graph (Old)* to *Time Series*
@@ -86,7 +86,7 @@ Below is what your panel should look like:
 ![Sockshop App](img/sockshop-app.png)
 6. One more fix!  We notice that the two blue colors are just too similar, and we want to make it obvious.  So, right from the dashboard, we click on the blue line associated with _user_ in the legend, and a set of default colors appear.  Choose Purple.
 Save the dashboard.
-## Convert the Server Request Rates panel from an old "graph" panel to a Bar Gauge Panel
+## Convert the 'Server Request Rates' panel from the deprecated "graph" panel to a bar gauge panel
 Like our first panel, we want context to understand what good looks like.  Knowing our internal data patterns, we want to avoid service overload conditions where end-user performance can be affected.  
 1. Edit the *Server Request Rates* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Graph (Old)* to *Bar Gauge*
@@ -101,17 +101,18 @@ Like our first panel, we want context to understand what good looks like.  Knowi
 Below is what your panel should look like:
 ![Server Request Rates](img/webserver-request-rates.png)
 
-## Add existing Library Panels
+## Add existing library panels
 Remembering that someone saved some valuable service KPI panels to your Panel Library, adding them will give our users a better picture of how our service is being delivered.
 
-1. Choose _Add Panel_ and then _Add a panel from the Panel Library_. Choose Panel, "Service APDEX".
+1. Choose _Add Panel_ and then _Add a panel from the Panel Library_. Search for word "Apdex" and choose Panel, "Service APDEX".
 ![Add Library Panel](img/add-panel.png)
-2. Repeat this process, choosing panel, "Infrastructure - Error Score".
-3. Repeat this process a third time, choosing panel, "Latency Profile, Sockshop Application".
+2. Repeat this process, searching for "Score" and choosing panel, "Infrastructure - Error Score".
+3. Repeat this process a third time, searching for "sock" and choosing panel, "Latency Profile, Sockshop Application".
+4. Critical - Save your dashboard as you've done some fine work thus far!
 
 After adding these panels, you notice in the top left they all have *Panel drilldown* links going to another more detailed dashboard...score!  That will save us a ton of time building the detailed service view.  
 
-However, you want to add a similar drilldown to the _SLO Status (Errors) per Data Center_ panel just in case users don't see the panel links.
+However, you want to add a similar drilldown to the _SLO Status (Errors) per Data Center_ panel (ie the renamed "Error Rates" panel) just in case users don't see the panel links.
 1. Edit the _SLO Status (Errors) per Data Center_ panel and find the category *Data Links* (3rd from the bottom - _not_ Panel Links).
 2. Click _Add Link_ and add the following:
 * For Title, type in _Sockshop Service Details_.
@@ -120,19 +121,21 @@ However, you want to add a similar drilldown to the _SLO Status (Errors) per Dat
 * Now that you have saved your work, click anywhere on the SLO Status (Errors) graph to validate it drills into that other detailed dashboard.
 
 ## Add our company logo
-For a bit of flair, we'd like to add our company logo.  To do so, add a *Text* panel.
-For _mode_ in the bottom right, choose HTML.
+For a bit of flair, we'd like to add our company logo.  To do so:
+* Click on Add Panel and then 'Add a new panel'
+* On the right hand side, click on the default "Time Series" and search for 'Text'. Choose a *Text* panel.
+For _mode_ in the bottom right, switch from Markdown to HTML.
 Remove the default text and paste in the following HTML:
 ```<center><img align="center" src="https://i.pinimg.com/originals/74/a0/a5/74a0a51848fb3717c671598dc675c654.jpg" ></center>```
 Remove the Panel Title, Click on _Transparent Background_ and click Apply.  Size the panel appropriately.
-## Arrange our panels
+
 ## Arrange our panels
 Finally, we need to arrange our panels so that the most important graphs are in that Z pattern, spaced appropriately, and properly sized.
 We may need to add some spacing to our dashboard.  To do so, choose the blank text panel we have saved in our library.
 
 1. First, let's add a row for our RED metrics (request rates, errors, and duration/latency). 
 *  Click on add panel and Add a New Row.
-*  Change the row title to *Service RED Metrics* and, going left to right, move Service Requests per Second, SLO Status (Errors) per Data Center, and Latency for Sockshop App on the top row.
+*  Change the row title to *Service RED Metrics* and, going left to right, move Server Requests per Second, SLO Status (Errors) per Data Center, and Latency for Sockshop App on the top row.
 2. Add a 2nd row called *Key Performance Indicators*
 * Move the rest of the graphs into this grouping.  In the middle row, going left to right, move Service Apdex, Latency quantiles, and then our logo to this middle row.
 * In the bottom area, we should have K8s Service Status on the left, Infrastucture - Error Score below it, and Customer Activity to the right of those two graphs.
