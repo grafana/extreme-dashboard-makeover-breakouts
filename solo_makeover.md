@@ -89,11 +89,12 @@ Save the dashboard.
 ## Convert the 'Server Request Rates' panel from the deprecated "graph" panel to a bar gauge panel
 Like our first panel, we want context to understand what good looks like.  Knowing our internal data patterns, we want to avoid service overload conditions where end-user performance can be affected.  
 1. Edit the *Server Request Rates* panel (click on the panel's title and then *Edit*)
-2. Switch the Visualization Type from *Graph (Old)* to *Bar Gauge*
-3. Under *Bar Gauge*:
+2. Change the Panel Title to *Server Request Rates per Second* (ie add "per Second" for clarity)
+3. Switch the Visualization Type from *Graph (Old)* to *Bar Gauge*
+4. Under *Bar Gauge*:
 * Change Orientation (Layout Orientation) from Auto to Horizontal.
 * Change Display Mode from *Gradient* to *Retro LCD*
-4. Under Thresholds (At the bottom of the menu panel on the right):
+5. Under Thresholds (At the bottom of the menu panel on the right):
 * Change the base color from Green to Blue
 * Change the 2nd color from Red to Yellow and the threshold level from 80 to 45.
 * Add a third threshold level, 55.  Set color to Orange.
