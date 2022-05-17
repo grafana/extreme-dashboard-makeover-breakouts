@@ -47,7 +47,7 @@ This one is a mess. I've been told that this data is from OSS Loki, our logging 
 1. Edit the *Customer Activity* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Stat* to *Geomap*
 3. Using the *Search options* in the top right, Find "Base layer".  
-4. Under *Base layer*, change the Layer type to *ArcGIS MapServer* with a Server instance of *World Ocean*.
+4. Under *Base layer*, change the Layer type to *ArcGIS Map* with a Server instance of *World Ocean*.
 ![Base layer](img/Base-layer.png)
 5. Click the 'x' on the Search bar to clear your Base Layer search.
 6. CRITICAL! Since this is a point-in-time view, validate the *Query Type* of the query is __Instant__ and not Range.
@@ -100,7 +100,7 @@ Like our first panel, we want context to understand what good looks like.  Knowi
 * Add a third threshold level, 55.  Set color to Orange.
 * Select Apply to apply your panel settings.
 Below is what your panel should look like:
-![Server Request Rates](img/webserver-request-rates.png)
+![Webserver Request Rates](img/webserver-request-rates.png)
 
 ## Add existing library panels
 Remembering that someone saved some valuable service KPI panels to your Panel Library, adding them will give our users a better picture of how our service is being delivered.
