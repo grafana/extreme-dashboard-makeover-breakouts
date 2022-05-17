@@ -1,17 +1,18 @@
 # Team Challenge: KitchenOps !!! 
 
 Your team has been recently hired to run your restaurant's KitchenOps program.  The restaurant is so close to its 5th Michelin star, you can taste it!
+
 One way to attain that 5th star is to deliver consistently perfect results in meal preparation.  This means having complete control over:
 * Oven, stovetop, and grill temperature settings
 * Shelflife of the freshest ingredients (and the soup!)
 * Consistency of food preparation times per meal time
 * and more.
 
-Being in the 4-star tier, this restaurant has recently invested in IoT telemetry to track these sorts of things, and the restaurant owner's child Lucky has already created a set of library panels for these sensors. Lucky is sending all data to Google Sheets for now.
+Being in the 4-star tier, this restaurant has recently invested in IoT telemetry to track these sorts of things, and the restaurant owner's IT person has already created a set of library panels for these sensors. 
 
-All we have to do is present them in a way that is easy for the kitchen staff to understand and attractive enough -  if they were to peek into the kitchen - an anonymous Michelin inspector! 
+All we have to do is present them in a way that is easy for the kitchen staff to understand and attractive enough -  if they were to peek into the kitchen - for an anonymous Michelin inspector to notice! 
 
-At the end of this exercise, everyone will vote on who has the best dashboard (you cannot vote for your own dashboard).  Please name your team so that everyone knows who to vote for....good luck!
+At the end of this exercise, everyone will vote on who has the best dashboard (you cannot vote for your own dashboard).  Please *name your team* so that everyone knows who to vote for....good luck!
 
 A couple of kitchen standards:
 1. While ground spices are typically replaced at 6 months and other spices should be replaced every 2-4 years, this kitchen tries to keep spices for no more than *4 months* - when they remember.
@@ -31,5 +32,8 @@ A couple of kitchen standards:
 8. You've been told that management loves "spring" colors. 
 
 
-The following library panels have been created as starting points:
+## Directions
+In Grafana, find the dashboard, *Dashboard Makeover - Team Challenge*.
+Using this dashboard as a starting point, you or one of your team members will screen share their dashboard.  Then, you and your teammates will collaborate to create the best dashboard possible.
 
+Good Luck!
