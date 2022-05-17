@@ -27,7 +27,7 @@ The value mapping settings should look like this:
 This table is showing us tons of information that we already know.  The original goal of this table was to show a state of 1 (UP) or 0 (DOWN) for each of our service containers.   Our new goal is to simplify the presentation of the information using a *polystat* panel.  
 1. Edit the *K8s Service Status* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Table* to *Polystat*
-* You will notice that all of the rows have been aggregated into one average of all values.  To separate our data per container, change the formula's *Format* from Table to Time Series.  In newer versions of the Grafana UI, this option is under *Options*.
+* You will notice that all of the rows have been aggregated into one average of all values.  To separate our data per container, change the query's *Format* from Table to Time Series.  In newer versions of the Grafana UI, this option is under *Options*.
 ![Table to Timeseries](img/table-to-timeseries.png)
 3. Under Options...Global on the right-hand side (5th group in the Polystat settings), change Decimals from 2 to 0 as the *Instant* value will always be a 0 or 1.
 4. Change the Polygon Border Color to Transparent.
@@ -50,7 +50,7 @@ This one is a mess. I've been told that this data is from OSS Loki, our logging 
 4. Under *Base layer*, change the Layer type to *ArcGIS MapServer* with a Server instance of *World Ocean*.
 ![Base layer](img/Base-layer.png)
 5. Click the 'x' on the Search bar to clear your Base Layer search.
-6. CRITICAL! Since this is a point-in-time view, validate the *Query Type* of the formula is __Instant__ and not Range.
+6. CRITICAL! Since this is a point-in-time view, validate the *Query Type* of the query is __Instant__ and not Range.
 ![Query Type](img/Query-Type.png)
 7. We want to add markers on the map.  Again using the *Search options* in the top right, find *Data layer* and click on Layer 1 *markers*. We want a lookup of the country by our geoip_country_code field. 
 8. To do this, under *Location*, click *Lookup* and then choose Lookup Field, geoip_country_code.  You should now see data on your map. But we're not done!
@@ -67,12 +67,12 @@ Since this service latency graph is viewed by dozens of people, we know statisti
 1. Edit the *Latency for Sockshop App* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Graph (Old)* to *Time Series*
 3. Let's fix the legend first.  
-* In the legend field (under Options below our formula on the left), change the type from Verbose to Custom and enter {{ job }}.  You will notice that the name of the job is displayed instead of the raw key/value pair.  But we still don't like the fact that the namespace of _development_ still appears.  So, let's use a _transformation_ to rename our fields.
+* In the legend field (under Options below our query on the left), change the type from Verbose to Custom and enter {{ job }}.  You will notice that the name of the job is displayed instead of the raw key/value pair.  But we still don't like the fact that the namespace of _development_ still appears.  So, let's use a _transformation_ to rename our fields.
 * Click on _Transform_ and then _Rename by Regex_ (scroll down the list or use the 'Add transformation' search).  For match, let's do 2 string captures - before and after the */*. 
 * For match, type in *.+/(.+)*
 * For the _Replace_ field, type in *$1*
 4. Someone else said this graph, denoted in seconds, would be easier to understand if it were in milliseconds.  
-* Let's change the formula on the left hand side by adding ** 1000* to the end of the formula.
+* Let's change the query on the left hand side by adding ** 1000* to the end of the query
 * Add a unit to the y-axis.  Under the panel's search options (top right), type in _Unit_.  For the unit, use _Time / milliseconds (ms)_.
 5. We now want to make it easier for our colorblind colleagues to read.
 * For all lines in the graph: Use the  *Graph Styles*, choose a Line Width of 2 and a Fill opacity of 0
@@ -91,12 +91,13 @@ Like our first panel, we want context to understand what good looks like.  Knowi
 1. Edit the *Server Request Rates* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Graph (Old)* to *Bar Gauge*
 3. Under *Bar Gauge*:
-* Change Orientation from Auto to Horizontal.
+* Change Orientation (Layout Orientation) from Auto to Horizontal.
 * Change Display Mode from *Gradient* to *Retro LCD*
-4. Under Thresholds:
+4. Under Thresholds (At the bottom of the menu panel on the right):
 * Change the base color from Green to Blue
-* Change the 2nd color from Red to Yellow
-* Add a third threshold level, 90.  Set color to Orange.
+* Change the 2nd color from Red to Yellow and the threshold level from 80 to 45.
+* Add a third threshold level, 55.  Set color to Orange.
+* Select Apply to apply your panel settings.
 Below is what your panel should look like:
 ![Server Request Rates](img/webserver-request-rates.png)
 
@@ -104,6 +105,7 @@ Below is what your panel should look like:
 Remembering that someone saved some valuable service KPI panels to your Panel Library, adding them will give our users a better picture of how our service is being delivered.
 
 1. Choose _Add Panel_ and then _Add a panel from the Panel Library_. Choose Panel, "Service APDEX".
+![Add Library Panel](img/add-panel.png)
 2. Repeat this process, choosing panel, "Infrastructure - Error Score".
 3. Repeat this process a third time, choosing panel, "Latency Profile, Sockshop Application".
 
