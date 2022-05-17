@@ -136,7 +136,7 @@ We may need to add some spacing to our dashboard.  To do so, choose the blank te
 
 1. First, let's add a row for our RED metrics (request rates, errors, and duration/latency). 
 *  Click on add panel and Add a New Row.
-*  Change the row title to *Service RED Metrics* and, going left to right, move Server Requests per Second, SLO Status (Errors) per Data Center, and Latency for Sockshop App on the top row.
+*  Click on the Gear icon to change the row title to *Service RED Metrics*. Going left to right, move Server Requests per Second, SLO Status (Errors) per Data Center, and Latency for Sockshop App on the top row.
 2. Add a 2nd row called *Key Performance Indicators*
 * Move the rest of the graphs into this grouping.  In the middle row, going left to right, move Service Apdex, Latency quantiles, and then our logo to this middle row.
 * In the bottom area, we should have K8s Service Status on the left, Infrastucture - Error Score below it, and Customer Activity to the right of those two graphs.
