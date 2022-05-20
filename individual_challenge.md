@@ -1,6 +1,6 @@
-# Team Challenge: KitchenOps !!! 
+# Individual Challenge: KitchenOps !!! 
 
-Your team has been recently hired to run your restaurant's KitchenOps program.  The restaurant is so close to its 5th Michelin star, you can taste it!
+You have been recently hired to run your restaurant's KitchenOps program.  The restaurant is so close to its 5th Michelin star, you can taste it!
 
 One way to attain that 5th star is to deliver consistently perfect results in meal preparation.  This means having complete control over:
 * Oven, stovetop, and grill temperature settings
@@ -27,13 +27,11 @@ A couple of kitchen standards:
 
 6. Our restaurant's multicolor mood lighting is incredible. Let's make sure 100% of the lights are working.
 
-7. Let's make sure the room temperature is 70 degrees (F) in all 8 zones of our dining rooms.
-
-8. You've been told that management loves "spring" colors. 
+7. Let's make sure the room temperature is 70 degrees (F) in all 8 zones of our dining rooms.  We don't want our guests to suffer the chill below 69 or a heat above 71 degrees Farenheit.
 
 
 ## Directions
-In Grafana, find the dashboard, *Dashboard Makeover - Team Challenge*.
-Using this dashboard as a starting point, you or one of your team members will screen share their dashboard.  Then, you and your teammates will collaborate to create the best dashboard possible.
+In Grafana, find the dashboard, *Dashboard Makeover Challenge*.
+Using this dashboard as a starting point, and using the techniques you learned from the workshop, create the best dashboard possible and send the results to mike.johnson@grafana.com.  The top 7 dashboards will win some cool Grafana swag.
 
-Good Luck!
+Good Luck!!!
