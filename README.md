@@ -2,8 +2,6 @@
 
 ![Grafana Logo](grafana.png)
 
-## Prerequisites:
-[Initial setup for a smooth workshop experience](./workshop-prerequisites.md)
 
 ## Breakouts:
 
