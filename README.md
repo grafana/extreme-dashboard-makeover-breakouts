@@ -9,4 +9,4 @@
 
 [Breakout 1: Solo Makeover](./solo_makeover.md)
 
-[Breakout 2: Team Challenge](./team_challenge.md)
+[(Optional) Take home exercise 2: Individual Challenge](./individual_challenge.md)
