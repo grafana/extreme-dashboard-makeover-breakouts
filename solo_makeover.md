@@ -8,7 +8,7 @@ Steps to Import:
 3. You will be asked to choose three of your dashboard's data sources:
   3a. For TestData DB, choose `TestData DB`.
   3b. For Prometheus (Cloud), choose `grafanacloud-prometheus`.
-  3c. For LokiNGINXLogs, choose `Loki NGINX`.
+  3c. For LokiNGINXLogs, choose `LokiNGINX`.
   3d. Click on *Import*.
 
 *While our existing dashboard already has useful information such as RED metrics - request rates, errors, and duration/latency - for our service as well as state information for the underlying Kubernetes pods and end-user activity from a geographic lens, our aim is to make the information on the dashboard easier to understand and more visually appealing.*
@@ -127,7 +127,7 @@ To import that drilldown dashboard (Called `Sockshop Performance`):
 3. You will be asked to choose three of your dashboard's data sources:
   3a. For TestData DB, choose `TestData DB`.
   3b. For Prometheus (Cloud), choose `grafanacloud-prometheus`.
-  3c. For LokiNGINXLogs, choose `Loki NGINX`.
+  3c. For LokiNGINXLogs, choose `LokiNGINX`.
   3d. Click on *Import*.
 
 However, you want to add a similar drilldown to the _SLO Status (Errors) per Data Center_ panel (ie the renamed "Error Rates" panel) just in case users don't see the panel links.
@@ -170,5 +170,5 @@ Steps to Import:
 3. You will be asked to choose three of your dashboard's data sources:
   3a. For TestData DB, choose `TestData DB`.
   3b. For Prometheus (Cloud), choose `grafanacloud-prometheus`.
-  3c. For LokiNGINXLogs, choose `Loki NGINX`.
+  3c. For LokiNGINXLogs, choose `LokiNGINX`.
   3d. Click on *Import*.
