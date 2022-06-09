@@ -1,7 +1,16 @@
 # Solo Makeover
 We will be revamping the following dashboard.
 ![Dull Dashboard](img/dull-dashboard.png)
-Go to the magnifying glass icon in the left menu and search for "Dull".  Choose the Dull Dashboard.
+
+Steps to Import:
+1. Go to the Dashboards (4 squares) icon in the left menu and click on **+ Import**. 
+2. In the Import via grafana.com field, type in `16413` and then click *Load*.
+3. You will be asked to choose three of your dashboard's data sources:
+  3a. For TestData DB, choose `TestData DB`.
+  3b. For Prometheus (Cloud), choose `grafanacloud-prometheus`.
+  3c. For LokiNGINXLogs, choose `Loki NGINX`.
+  3d. Click on *Import*.
+
 
 *While our existing dashboard already has useful information such as RED metrics - request rates, errors, and duration/latency - for our service as well as state information for the underlying Kubernetes pods and end-user activity from a geographic lens, our aim is to make the information on the dashboard easier to understand and more visually appealing.*
 
@@ -145,3 +154,13 @@ We may need to add some spacing to our dashboard.  To do so, choose the blank te
 
 After arranging our panels and adding space, your dashboard should look something similar to this:
 ![Final-Dashboard One](img/dashboard-one.png)
+
+If you did not finish in time, you can load the following completed dashboard:
+Steps to Import:
+1. Go to the Dashboards (4 squares) icon in the left menu and click on **+ Import**. 
+2. In the Import via grafana.com field, type in `16414` and then click *Load*.
+3. You will be asked to choose three of your dashboard's data sources:
+  3a. For TestData DB, choose `TestData DB`.
+  3b. For Prometheus (Cloud), choose `grafanacloud-prometheus`.
+  3c. For LokiNGINXLogs, choose `Loki NGINX`.
+  3d. Click on *Import*.
