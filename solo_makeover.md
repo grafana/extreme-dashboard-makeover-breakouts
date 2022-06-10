@@ -1,7 +1,15 @@
 # Solo Makeover
 We will be revamping the following dashboard.
 ![Dull Dashboard](img/dull-dashboard.png)
-Go to the magnifying glass icon in the left menu and search for "Dull".  Choose the Dull Dashboard.
+**Prerequisite**: We first need to import this dashboard.
+Steps to Import:
+1. Go to the Dashboards (4 squares) icon in the left menu and click on **+ Import**. 
+2. In the Import via grafana.com field, type in `16413` and then click *Load*.
+3. You will be asked to choose three of your dashboard's data sources:
+  3a. For TestData DB, choose `TestData DB`.
+  3b. For Prometheus (Cloud), choose `grafanacloud-prometheus`.
+  3c. For LokiNGINXLogs, choose `LokiNGINX`.
+  3d. Click on *Import*.
 
 *While our existing dashboard already has useful information such as RED metrics - request rates, errors, and duration/latency - for our service as well as state information for the underlying Kubernetes pods and end-user activity from a geographic lens, our aim is to make the information on the dashboard easier to understand and more visually appealing.*
 
@@ -113,6 +121,15 @@ Remembering that someone saved some valuable service KPI panels to your Panel Li
 
 After adding these panels, you notice in the top left they all have *Panel drilldown* links going to another more detailed dashboard...score!  That will save us a ton of time building the detailed service view.  
 
+To import that drilldown dashboard (Called `Sockshop Performance`):
+1. Go to the Dashboards (4 squares) icon in the left menu and click on **+ Import**. 
+2. In the Import via grafana.com field, type in `16416` and then click *Load*.
+3. You will be asked to choose three of your dashboard's data sources:
+  3a. For TestData DB, choose `TestData DB`.
+  3b. For Prometheus (Cloud), choose `grafanacloud-prometheus`.
+  3c. For LokiNGINXLogs, choose `LokiNGINX`.
+  3d. Click on *Import*.
+
 However, you want to add a similar drilldown to the _SLO Status (Errors) per Data Center_ panel (ie the renamed "Error Rates" panel) just in case users don't see the panel links.
 1. Edit the _SLO Status (Errors) per Data Center_ panel and find the category *Data Links* (3rd from the bottom - _not_ Panel Links).
 2. Click _Add Link_ and add the following:
@@ -145,3 +162,13 @@ We may need to add some spacing to our dashboard.  To do so, choose the blank te
 
 After arranging our panels and adding space, your dashboard should look something similar to this:
 ![Final-Dashboard One](img/dashboard-one.png)
+
+If you didn't quite finish but would like a working copy of our result you can import the dashboard:
+Steps to Import:
+1. Go to the Dashboards (4 squares) icon in the left menu and click on **+ Import**. 
+2. In the Import via grafana.com field, type in `16414` and then click *Load*.
+3. You will be asked to choose three of your dashboard's data sources:
+  3a. For TestData DB, choose `TestData DB`.
+  3b. For Prometheus (Cloud), choose `grafanacloud-prometheus`.
+  3c. For LokiNGINXLogs, choose `LokiNGINX`.
+  3d. Click on *Import*.
