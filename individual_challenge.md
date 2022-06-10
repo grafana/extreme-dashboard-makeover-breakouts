@@ -12,8 +12,6 @@ Being in the 4-star tier, this restaurant has recently invested in IoT telemetry
 
 All we have to do is present them in a way that is easy for the kitchen staff to understand and attractive enough -  if they were to peek into the kitchen - for an anonymous Michelin inspector to notice! 
 
-At the end of this exercise, everyone will vote on who has the best dashboard (you cannot vote for your own dashboard).  Please *name your team* so that everyone knows who to vote for....good luck!
-
 A couple of kitchen standards:
 1. While ground spices are typically replaced at 6 months and other spices should be replaced every 2-4 years, this kitchen tries to keep spices for no more than *4 months* - when they remember.
  
