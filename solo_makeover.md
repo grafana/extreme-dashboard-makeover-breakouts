@@ -29,7 +29,7 @@ We will edit the Error Rates panel first.  We want to add context to what error 
 * Click on Update
 The value mapping settings should look like this:
 ![Value Mappings](img/value-mappings.png)
-5.  Change the Panel Title to * SLO Status(Errors) per Data Center*
+5.  Change the Panel Title to *SLO Status(Errors) per Data Center*
 6.  Click on *Apply*
 ## Convert the 'K8s Service Status' panel from a table to a polystat panel
 This table is showing us tons of information that we already know.  The original goal of this table was to show a state of 1 (UP) or 0 (DOWN) for each of our service containers.   Our new goal is to simplify the presentation of the information using a *polystat* panel.
@@ -80,7 +80,7 @@ Since this service latency graph is viewed by dozens of people, we know statisti
 * For match, type in *.+/(.+)*
 * For the _Replace_ field, type in *$1*
 4. Someone else said this graph, denoted in seconds, would be easier to understand if it were in milliseconds.
-* Let's change the query on the left hand side by adding ** 1000* to the end of the query
+* Let's change the query on the left hand side by adding *\* 1000* to the end of the query
 * Add a unit to the y-axis.  Under the panel's search options (top right), type in _Unit_.  For the unit, use _Time / milliseconds (ms)_.
 5. We now want to make it easier for our colorblind colleagues to read.
 * For all lines in the graph: Use the  *Graph Styles*, choose a Line Width of 2 and a Fill opacity of 0
