@@ -55,7 +55,7 @@ This one is a mess. I've been told that this data is from OSS Loki, our logging 
 1. Edit the *Customer Activity* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Stat* to *Geomap*
 3. Using the *Search options* in the top right, Find "Base layer".
-4. Under *Base layer*, change the Layer type to *ArcGIS Map* with a Server instance of *World Ocean*.
+4. Under *Basemap layer*, change the Layer type to *ArcGIS MapServer* with a Server instance of *World Ocean*.
 ![Base layer](img/Base-layer.png)
 5. Click the 'x' on the Search bar to clear your Base Layer search.
 6. CRITICAL! Since this is a point-in-time view, validate the *Query Type* of the query is __Instant__ and not Range.
