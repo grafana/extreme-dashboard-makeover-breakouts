@@ -60,7 +60,7 @@ This one is a mess. I've been told that this data is from OSS Loki, our logging 
 5. Click the 'x' on the Search bar to clear your Base Layer search.
 6. CRITICAL! Since this is a point-in-time view, validate the *Query Type* of the query is __Instant__ and not Range.
 ![Query Type](img/Query-Type.png)
-7. We want to add markers on the map.  Again using the *Search options* in the top right, find *Data layer* and click on Layer 1 *markers*. We want a lookup of the country by our geoip_country_code field.
+7. We want to add markers on the map.  Again using the *Search options* in the top right, find *Map layer* and click on Layer 1 *markers*. We want a lookup of the country by our geoip_country_code field.
 8. To do this, under *Location*, click *Lookup* and then choose Lookup Field, geoip_country_code.  You should now see data on your map. But we're not done!
 9. Under Styles...Size, Change from *Fixed Value* to *Value #Hits by geolocation*.
 10. Change Symbol from Circles to Star. Do this by selecting the circle.svg text, selecting Star and hitting 'Select'.
