@@ -54,7 +54,7 @@ The panel should look similar to what we have below.
 This one is a mess. I've been told that this data is from OSS Loki, our logging tool, and represents the number of hits coming from each Geographic region. It is colorful, but I have a very difficult time interpreting the information.  Let's change the visualization to a map!
 1. Edit the *Customer Activity* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Stat* to *Geomap*
-3. Using the *Search options* in the top right, Find "Base layer".
+3. Using the *Search options* in the top right, Find "Basemap layer".
 4. Under *Base layer*, change the Layer type to *ArcGIS Map* with a Server instance of *World Ocean*.
 ![Base layer](img/Base-layer.png)
 5. Click the 'x' on the Search bar to clear your Base Layer search.
