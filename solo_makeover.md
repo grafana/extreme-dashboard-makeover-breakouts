@@ -125,10 +125,8 @@ To import that drilldown dashboard (Called `Sockshop Performance`):
 1. Go to the Dashboards (4 squares) icon in the left menu and click on **+ Import**.
 2. In the Import via grafana.com field, type in `16416` and then click *Load*.
 3. You will be asked to choose three of your dashboard's data sources:
-  * 3a. For TestData DB, choose `TestData DB`.
-  * 3b. For Prometheus (Cloud), choose `grafanacloud-prometheus`.
-  * 3c. For LokiNGINXLogs, choose `LokiNGINX`.
-  * 3d. Click on *Import*.
+  * 3a. For Prometheus (Cloud), choose `Prometheus (Cloud)`.
+  * 3b. Click on *Import*.
 
 However, you want to add a similar drilldown to the _SLO Status (Errors) per Data Center_ panel (ie the renamed "Error Rates" panel) just in case users don't see the panel links.
 1. Edit the _SLO Status (Errors) per Data Center_ panel and find the category *Data Links* (3rd from the bottom - _not_ Panel Links).
