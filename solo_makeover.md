@@ -129,7 +129,7 @@ To import that drilldown dashboard (Called `Sockshop Performance`):
   * 3b. Click on *Import*.
 
 However, you want to add a similar drilldown to the _SLO Status (Errors) per Data Center_ panel (ie the renamed "Error Rates" panel) just in case users don't see the panel links.
-1. Edit the _SLO Status (Errors) per Data Center_ panel and find the category *Data Links* (3rd from the bottom - _not_ Panel Links).
+1. Back in the "dull dashboard" edit the _SLO Status (Errors) per Data Center_ panel and find the category *Data Links* (3rd from the bottom - _not_ Panel Links).
 2. Click _Add Link_ and add the following:
 * For Title, type in _Sockshop Service Details_.
 * For URL, paste in `/d/b2kdXLwnz/sockshop-performance?orgId=1`
