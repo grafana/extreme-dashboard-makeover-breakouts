@@ -54,13 +54,13 @@ The panel should look similar to what we have below.
 This one is a mess. I've been told that this data is from OSS Loki, our logging tool, and represents the number of hits coming from each Geographic region. It is colorful, but I have a very difficult time interpreting the information.  Let's change the visualization to a map!
 1. Edit the *Customer Activity* panel (click on the panel's title and then *Edit*)
 2. Switch the Visualization Type from *Stat* to *Geomap*
-3. Using the *Search options* in the top right, Find "Base layer".
+3. Using the *Search options* in the top right, Find "Basemap layer".
 4. Under *Basemap layer*, change the Layer type to *ArcGIS MapServer* with a Server instance of *World Ocean*.
 ![Base layer](img/Base-layer.png)
 5. Click the 'x' on the Search bar to clear your Base Layer search.
 6. CRITICAL! Since this is a point-in-time view, validate the *Query Type* of the query is __Instant__ and not Range.
 ![Query Type](img/Query-Type.png)
-7. We want to add markers on the map.  Again using the *Search options* in the top right, find *Data layer* and click on Layer 1 *markers*. We want a lookup of the country by our geoip_country_code field.
+7. We want to add markers on the map.  Again using the *Search options* in the top right, find *Map layer* and click on Layer 1 *markers*. We want a lookup of the country by our geoip_country_code field.
 8. To do this, under *Location*, click *Lookup* and then choose Lookup Field, geoip_country_code.  You should now see data on your map. But we're not done!
 9. Under Styles...Size, Change from *Fixed Value* to *Value #Hits by geolocation*.
 10. Change Symbol from Circles to Star. Do this by selecting the circle.svg text, selecting Star and hitting 'Select'.
@@ -125,13 +125,11 @@ To import that drilldown dashboard (Called `Sockshop Performance`):
 1. Go to the Dashboards (4 squares) icon in the left menu and click on **+ Import**.
 2. In the Import via grafana.com field, type in `16416` and then click *Load*.
 3. You will be asked to choose three of your dashboard's data sources:
-  * 3a. For TestData DB, choose `TestData DB`.
-  * 3b. For Prometheus (Cloud), choose `grafanacloud-prometheus`.
-  * 3c. For LokiNGINXLogs, choose `LokiNGINX`.
-  * 3d. Click on *Import*.
+  * 3a. For Prometheus (Cloud), choose `Prometheus (Cloud)`.
+  * 3b. Click on *Import*.
 
 However, you want to add a similar drilldown to the _SLO Status (Errors) per Data Center_ panel (ie the renamed "Error Rates" panel) just in case users don't see the panel links.
-1. Edit the _SLO Status (Errors) per Data Center_ panel and find the category *Data Links* (3rd from the bottom - _not_ Panel Links).
+1. Back in the "dull dashboard" edit the _SLO Status (Errors) per Data Center_ panel and find the category *Data Links* (3rd from the bottom - _not_ Panel Links).
 2. Click _Add Link_ and add the following:
 * For Title, type in _Sockshop Service Details_.
 * For URL, paste in `/d/b2kdXLwnz/sockshop-performance?orgId=1`
