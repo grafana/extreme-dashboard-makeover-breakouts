@@ -46,7 +46,7 @@ This table is showing us tons of information that we already know.  The original
 7. At the bottom, click on *Add a value mapping*.
 * set value of 1 to *UP*.
 * add a 2nd value mapping with 0 set to *DOWN*.
-8, Click Apply to the leave edit mode of that Panel.
+8. Click Apply to the leave edit mode of that Panel.
 The panel should look similar to what we have below.
 ![K8s Service Status](img/k8s-service-status.png)
 
