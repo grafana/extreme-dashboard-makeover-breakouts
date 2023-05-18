@@ -114,7 +114,7 @@ Below is what your panel should look like:
 Remembering that someone saved some valuable service KPI panels to your Panel Library, adding them will give our users a better picture of how our service is being delivered.
 
 1. Choose _Add Panel_ and then _Add a panel from the Panel Library_. Search for word "Apdex" and choose Panel, "Service APDEX".
-![Add Library Panel](img/add-panel.png)
+![Add Library Panel](img/add-panel-updated.png)
 2. Repeat this process, searching for "Score" and choosing panel, "Infrastructure - Error Score".
 3. Repeat this process a third time, searching for "sock" and choosing panel, "Latency Profile, Sockshop Application".
 4. Critical - Save your dashboard as you've done some fine work thus far!
