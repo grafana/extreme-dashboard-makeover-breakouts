@@ -61,7 +61,7 @@ This one is a mess. I've been told that this data is from OSS Loki, our logging 
 6. CRITICAL! Since this is a point-in-time view, validate the *Query Type* of the query is __Instant__ and not Range.
 ![Query Type](img/Query-Type.png)
 7. We want to add markers on the map.  Again using the *Search options* in the top right, find *Map layer* and click on Layer 1 *markers*. We want a lookup of the country by our geoip_country_code field.
-8. To do this, under *Location*, click *Lookup* and then choose Lookup Field, geoip_country_code.  You should now see data on your map. But we're not done!
+8. To do this, under *Location Mode*, click *Lookup* and then choose Lookup Field, geoip_country_code.  You should now see data on your map. But we're not done!
 9. Under Styles...Size, Change from *Fixed Value* to *Value #Hits by geolocation*.
 10. Change Symbol from Circles to Star. Do this by selecting the circle.svg text, selecting Star and hitting 'Select'.
 11. Change color from Fixed to *Value #Hits by geolocation*.
@@ -77,7 +77,7 @@ Since this service latency graph is viewed by dozens of people, we know statisti
 3. Let's fix the legend first.
 * In the legend field (under Options below our query on the left), change the type from Verbose to Custom and enter {{ job }}.  You will notice that the name of the job is displayed instead of the raw key/value pair.  But we still don't like the fact that the namespace of _development_ still appears.  So, let's use a _transformation_ to rename our fields.
 * Click on _Transform_ and then _Rename by Regex_ (scroll down the list or use the 'Add transformation' search).  For match, let's do 2 string captures - before and after the */*.
-* For match, type in *.+/(.+)*
+* For match, type in *.+/(.+)"}*
 * For the _Replace_ field, type in *$1*
 4. Someone else said this graph, denoted in seconds, would be easier to understand if it were in milliseconds.
 * Let's change the query on the left hand side by adding *\* 1000* to the end of the query
