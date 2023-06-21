@@ -33,13 +33,14 @@ A couple of kitchen standards:
 ## Directions
 **Prerequisite**: We first need to import the `Dashboard Makeover Challenge` dashboard.
 Steps to Import:
-1. Go to the Dashboards (4 squares) icon in the left menu and click on **+ Import**. 
-2. In the Import via grafana.com field, type in `16415` and then click *Load*.
-3. You will be asked to choose three of your dashboard's data sources:
-  3a. For TestData DB, choose `TestData DB`.
-  3b. For Google Sheets, choose `Google Sheets`.
-  3c. You will also notice that library panels will be imported automatically.
-  3d. Click on *Import*.
+1. Click the menu button (☰) at the top left, and then click on *Dashboards*.
+2. On the Dashboards screen, click the *New* button and then click *Import*.
+3. On the Import Dashboard screen, in the *Import via grafana.com* field, type in `16415` and then click *Load*.
+4. You will be asked to choose three of your dashboard's data sources:
+    -  For TestData DB, choose `TestData DB`.
+    - For Google Sheets, choose `Google Sheets`.
+    - You will also notice that library panels will be imported automatically.
+    - Click on *Import*.
   
 Using this dashboard as a starting point, and using the techniques you learned from the workshop, create the best dashboard possible and send the results to mike.johnson@grafana.com.  The top 7 dashboards will win some cool Grafana swag.
 
