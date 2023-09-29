@@ -42,7 +42,7 @@ Steps to Import:
     - You will also notice that library panels will be imported automatically.
     - Click on *Import*.
   
-Using this dashboard as a starting point, and using the techniques you learned from the workshop, create the best dashboard possible and send the results to mike.johnson@grafana.com.  The top 7 dashboards will win some cool Grafana swag.
+Using this dashboard as a starting point, and using the techniques you learned from the workshop, create the best dashboard possible and send the results to your Extreme Dashboarding presenter.  The top 7 dashboards will win some cool Grafana swag.
 
 For inspiration, you can import dashboard `16417`.
 
