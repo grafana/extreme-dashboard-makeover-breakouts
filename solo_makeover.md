@@ -17,14 +17,14 @@ Follow these steps to Import it:
 
 *While our existing dashboard already has useful information such as RED metrics - request rates, errors, and duration/latency - for our service as well as state information for the underlying Kubernetes pods and end-user activity from a geographic lens, our aim is to make the information on the dashboard easier to understand and more visually appealing.*
 
-## Convert the 'Error Rates' panel from a deprecated "graph" panel to a stat panel
+## Convert the 'Error Rates' panel from a time series to a stat panel
 
 We will edit the Error Rates panel first.  We want to add context to what error rates are acceptable, in a danger zone, or are in violation of an internal Service Level Objective (SLO).
 
 ![Error Rate Panel](img/error-rate-panel.png)
 
 1. Edit the *Error Rates* panel (hover over the panel's title, click on the three vertical dots at the top right, and then click *Edit*)
-2. Switch the Visualization Type from *Graph (Old)* to *Stat*
+2. Switch the Visualization Type from *Time Series* (or *Graph* in older versions of Grafana) to *Stat*
 3. Under *Stat styles*:
     * Change Orientation from Auto to Horizontal.
     * Change Color Mode from Value to Background Gradient.
@@ -59,7 +59,9 @@ This table is showing us tons of information that we already know.  The original
 7. At the bottom of the options panel, click on *Add value mappings*.
     * Add a Value mapping, setting the value condition to 1, and the display text to *UP*.
     * Add a second Value mapping, condition 0 and display text *DOWN*.
-8. Click *Apply* to the leave the edit mode of that panel.
+8. Change the Font Family to 'Inter'.
+9. Toggle Automate Font Color to the OFF position. This should render the text in black. Or, use the Font Color box to pick a color of your choice.
+10. Click *Apply* to the leave the edit mode of that panel.
 The panel should look similar to what is shown below:
 
     ![K8s Service Status](img/k8s-service-status.png)
@@ -83,10 +85,10 @@ This one is a mess. I've been told that this data is from OSS [Loki](https://gra
 14. For a threshold of 10, change the color to dark Orange using the same method as above.
 15. Delete the 3rd threshold value of 20 by clicking on its garbage can icon.
 16. Click Apply to the leave edit mode of that Panel.
-## Update the 'Latency for Sockshop App' panel from an old "graph" panel to a time series panel
+## Update the 'Latency for Sockshop App' panel
 Since this service latency graph is viewed by dozens of people, we know statistically that at least 2 people viewing this graph are colorblind.  That said, the Product owner of Sockshop called the colors 'uninspiring'.  You also notice that the legend is rough around the edges.
 1. Edit the *Latency for Sockshop App* panel (hover over the panel's title, click the three vertical dots to show the context menu, and then click *Edit*)
-2. Switch the Visualization Type from *Graph (Old)* to *Time Series*
+2. Switch the Visualization Type to *Time Series*, if it isn't already.
 3. Let's fix the legend first:
     * Under the query on the left, in the Options panel, change the Legend type from Verbose to *Custom* and enter `{{ job }}`.  You will notice that the name of the job is displayed at the bottom of the graph, instead of the raw key/value pair.  But we still don't like the fact that the namespace of _development_ still appears.  So, let's use a _transformation_ to rename our fields.
     * Click on _Transform_ and then _Rename by Regex_ (scroll down the list or use the 'Add transformation' search).  For match, let's do 2 string captures - before and after the */*.
@@ -111,11 +113,11 @@ Since this service latency graph is viewed by dozens of people, we know statisti
 
 7. One more fix!  We notice that the two blue colors are just too similar, and we want to make it obvious.  So, right from the dashboard, we click on the blue line associated with _user_ in the legend, and a set of default colors appear.  Choose Purple.
 8. Save the dashboard.
-## Convert the 'Server Request Rates' panel from the deprecated "graph" panel to a bar gauge panel
+## Convert the 'Server Request Rates' panel from a time series to a bar gauge panel
 Like our first panel, we want context to understand what good looks like.  Knowing our internal data patterns, we want to avoid service overload conditions where end-user performance can be affected.
 1. Edit the *Server Request Rates* panel (hover over the panel's title, click the three vertical dots to show the context menu, and then click *Edit*)
 2. Change the Panel Title to *Server Request Rates per Second* (i.e. add "per Second" for clarity)
-3. Switch the Visualization Type from *Graph (Old)* to *Bar Gauge*
+3. Switch the Visualization Type from *Time Series* to *Bar Gauge*
 4. Under *Bar Gauge*:
     * Change Orientation (Layout Orientation) from Auto to Horizontal.
     * Change Display Mode from *Gradient* to *Retro LCD*
@@ -132,18 +134,17 @@ Below is what your panel should look like:
 ## Add existing library panels
 Remembering that someone saved some valuable service KPI panels to your Panel Library, adding them will give our users a better picture of how our service is being delivered.
 
-> **Note**
-> Because of the slightly different way the `Testdata` source works, you won't see data for the library visualisations until you carry out step 5 below and refresh the dashboard.
-
 1. From your dashboard, click the _Add_ button at the top of the screen, and then _Import from Library_. 
 
 2. Search for the word "Apdex" and choose Panel, "Service APDEX".
 
     ![Add Library Panel](img/add-panel.png)
 
+    ⚠️ **NOTE:** This Library Panel is created from a test data source, so it will initially appear blank. Continue with the next steps to add the two other panels.
+
 2. Repeat this process, searching for "Score" and choosing panel, "Infrastructure - Error Score".
 3. Repeat this process a third time, searching for "sock" and choosing panel, "Latency Profile, Sockshop Application".
-5. Critical - Save your dashboard as you've done some fine work thus far!
+5. Critical - Save your dashboard as you've done some fine work thus far! Then you can reload the dashboard to see the new panels.
 
 After adding these panels, you notice at the top they all have a link icon. These *Panel drilldown* links go to another, more detailed dashboard... score!  That will save us a ton of time building the detailed service view.
 
