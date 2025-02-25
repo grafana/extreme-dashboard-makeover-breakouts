@@ -40,7 +40,7 @@ We will edit the Error Rates panel first.  We want to add context to what error 
     ![Value Mappings](img/value-mappings.png)
 
 5.  Change the Panel Title to *SLO Status(Errors) per Data Center*
-6.  Click on *Apply*
+6.  Click on *Save Dashboard*
 ## Convert the 'K8s Service Status' panel from a table to a polystat panel
 This table is showing us tons of information that we already know.  The original goal of this table was to show a state of 1 (UP) or 0 (DOWN) for each of our service containers.   Our new goal is to simplify the presentation of the information using a *polystat* panel.
 1. Edit the *K8s Service Status* panel (hover over the panel's title, click the three vertical dots to show the context menu, and then click *Edit*)
@@ -61,7 +61,7 @@ This table is showing us tons of information that we already know.  The original
     * Add a second Value mapping, condition 0 and display text *DOWN*.
 8. Change the Font Family to 'Inter'.
 9. Toggle Automate Font Color to the OFF position. This should render the text in black. Or, use the Font Color box to pick a color of your choice.
-10. Click *Apply* to the leave the edit mode of that panel.
+10. Click *Save Dashboard* to the leave the edit mode of that panel.
 The panel should look similar to what is shown below:
 
     ![K8s Service Status](img/k8s-service-status.png)
@@ -84,7 +84,7 @@ This one is a mess. I've been told that this data is from OSS [Loki](https://gra
 12. The colors of blue and orange seem to blend in a bit much on the map, so we need to make them stand out a bit more. Using the *Search options* box in the top right, enter `thresholds`. Change the base color to Dark Purple by clicking on the orange circle, then clicking on dark purple, and then click outside of that popup window.
 14. For a threshold of 10, change the color to dark Orange using the same method as above.
 15. Delete the 3rd threshold value of 20 by clicking on its garbage can icon.
-16. Click Apply to the leave edit mode of that Panel.
+16. Click Save Dashboard to the leave edit mode of that Panel.
 ## Update the 'Latency for Sockshop App' panel
 Since this service latency graph is viewed by dozens of people, we know statistically that at least 2 people viewing this graph are colorblind.  That said, the Product owner of Sockshop called the colors 'uninspiring'.  You also notice that the legend is rough around the edges.
 1. Edit the *Latency for Sockshop App* panel (hover over the panel's title, click the three vertical dots to show the context menu, and then click *Edit*)
@@ -107,7 +107,7 @@ Since this service latency graph is viewed by dozens of people, we know statisti
     * Let's make dataset _catalogue_ a dashed line. Add an override for Fields with name _catalogue_, adding a Line Style override. For the dash pattern, we want to see long-short-short, and so to do this, we choose *30,3,3*, the last item in the dropdown.
     * Choose field with name _carts_ and Add override property.  In search, find _Graph styles > Line style_. Change from Solid to *Dots* and keep the *0,10* *line,space* setting.
     * We will keep _orders_ as-is.
-6. Click *Apply*. Below is what your panel should look like:
+6. Click *Save Dashboard*. Below is what your panel should look like:
 
     ![Sockshop App](img/sockshop-app.png)
 
@@ -125,7 +125,7 @@ Like our first panel, we want context to understand what good looks like.  Knowi
     * Change the base color from Green to Blue
     * Change the 2nd color from Red to Yellow and the threshold level from 80 to 45.
     * Add a third threshold level, 55.  Set color to Orange.
-    * Select Apply to apply your panel settings.
+    * Select Save Dashboard to apply your panel settings.
 
 Below is what your panel should look like:
 
@@ -164,7 +164,7 @@ However, you want to add a similar drilldown to the _SLO Status (Errors) per Dat
     * For Title, type in _Sockshop Service Details_.
     * For URL, paste in `/d/b2kdXLwnz/sockshop-performance?orgId=1`
     * Select _Open in new tab_ and click *Save*.
-4. Click *Apply* to return to the Dashboard and then click the *Save* icon to save your changes.
+4. Click *Save Dashboard* to return to the Dashboard and then click the *Save* icon to save your changes.
 5. Now that you have saved your work, click anywhere on the SLO Status (Errors) graph to validate it drills into that other detailed dashboard.
 
 ## Add our company logo
@@ -178,7 +178,7 @@ For a bit of flair, we'd like to add our company logo.  To do so:
     <center><img align="center" src="https://i.pinimg.com/originals/74/a0/a5/74a0a51848fb3717c671598dc675c654.jpg" ></center>
     ```
 
-5. Remove the Panel Title, Click on _Transparent Background_ and click *Apply*.
+5. Remove the Panel Title, Click on _Transparent Background_ and click *Save Dashboard*.
 6. Size the panel appropriately.
 
 ## Arrange our panels
