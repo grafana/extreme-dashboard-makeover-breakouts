@@ -1,7 +1,7 @@
 ## Transformations
 
-
-Prerequisite: We first need to import this dashboard. Follow these steps to Import it:
+![Transformation Examples](img/transforms.jpg)
+*Prerequisite*: We first need to import this dashboard. Follow these steps to Import it:
 
 1. Click the menu button (☰) at the top left, and then click on Dashboards.
 2. On the Dashboards screen, click the New button and then click Import.
