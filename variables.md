@@ -5,57 +5,65 @@ To make dashboards more dynamic and scalable, it is common practice to leverage 
 ## Create our Prometheus-based graph
 We will make a graph showing all data first.
 
-1. Add a new panel by clicking on Add … Visualization.
-2. Keep Visualization Type Time Series.
+1. Add a new panel by clicking on **Add … Visualization**.
+2. Keep Visualization Type **Time Series**.
 3. Name the Panel > Title, `Microservices Request Rates by Service and Status Code`
 4. Choose Prometheus Data Source, Prometheus (Cloud).
 5. Use the formula below, switching from `Builder` mode to `Code` mode.  This Prometheus query provides request rates by job (aka “service”) and status code.
-sum(rate(tns_request_duration_seconds_count{}[$__rate_interval])) by (job,status_code)
-![Dull Dashboard](img/dull-dashboard.png)
+![Change to Code Mode](img/variables1.png)
+`sum(rate(tns_request_duration_seconds_count{}[$__rate_interval])) by (job,status_code)`
 
-In your query’s options, set the legend to: 
-{{job}} - {{status_code}}
-The interim result should look like this below. After you are done, click Apply.
 
-Create our Prometheus-based nested variables
+
+6. In your query’s **options**, set the **legend** to: 
+`{{job}} - {{status_code}}`
+7. The interim result should look like this below. After you are done, click Apply.
+![Graph WITHOUT Variables](img/variables2.png)
+
+## Create our Prometheus-based nested variables
 Now, we create our dashboard variables to control this panel.
-Click on the Gear icon, choose the Variables tab, and Add Variable.
+1. Click on the **Gear** icon in the top right of your dashboard, choose the **Variables** tab, and **Add Variable**.
+![Gear Icon](img/variables3.png)
 
-Configure the first variable named “service”:
-Select variable type: Query
-General > Name: service
-General > Label: Service
-Query options > Data source: Prometheus (Cloud)
-Query options > Query > Query type: Label Values.  We want to extract the values for the label named job.
-Query options > Query > Label: job
-Query options > Query > Metric: tns_request_duration_seconds_count.  We could have chosen any tns_* metric that has data for our 3 services.
-Query options > Query > Label filters: <leave this blank>
-Selection options > Multi-value: leave unchecked
-Selection options > Include All option: leave unchecked
-Click Run Query.  It should return tns-app, tns-db, and tns-loadgen.
-Click Apply.
-Configure the second variable, “http status”, who relies upon the value of the $service variable.
-Click on + New variable.
-Select variable type: Query
-General > Name: http_status
-General > Label: HTTP Status Code
-Query options > Data source: Prometheus (Cloud)
-Query options > Query > Query type: Label Values.  We want to extract the values for the label named job.
-Query options > Query > Label: status_code
-Query options > Query > Metric: tns_request_duration_seconds_count.
-Query options > Query > Label filters: job =~ $service
-Selection options > Multi-value: check
-Selection options > Include All option: check
-Click Run Query.  It should return a few status codes.
-Click Apply.
+2. Configure the first variable named “service”:
+  a. Select variable type: *Query*
+  b. General > Name: *service*
+  c. General > Label: *Service*
+  d. Query options > Data source: *Prometheus (Cloud)*
+  e. Query options > Query > Query type: *Label Values*.  We want to extract the values for the label named `job`.
+  f. Query options > Query > **Label**: `job`
+  g. Query options > Query > **Metric**: *tns_request_duration_seconds_count*.  We could have chosen any tns_* metric that has data for our 3 services.
+  h. Query options > Query > **Label filters**: (leave this blank)
+  i. Selection options > Multi-value: (leave unchecked)
+  j. Selection options > Include All option: leave unchecked
+  k. Click **Run Query**.  It should return `tns-app`, `tns-db`, and `tns-loadgen`.
+  l. Click **Apply**.
+3. Configure the second variable, “http status”, who relies upon the value of the $service variable.
+  a. Click on **+ New variable**.
+  b. Select variable type: *Query*
+  c. General > Name: *http_status*
+  d. General > Label: *HTTP Status Code*
+  e. Query options > Data source: *Prometheus (Cloud)*
+  f. Query options > Query > Query type: *Label Values*.  We want to extract the values for the label named `job`.
+  g. Query options > Query > **Label**: *status_code*
+  h. Query options > Query > **Metric**: *tns_request_duration_seconds_count*
+  i. Query options > Query > **Label filters**: `job **=~** $service`
+  j. Selection options > Multi-value: check
+  k. Selection options > Include All option: check
+  l. Click **Run Query**.  It should return a few status codes.
+  m. Click Apply.
 After steps 2 & 3, your dashboard variables should look like this below:
+![Variable Settings](img/variables4.png)
 
-Modify our Prometheus-based graph
+## Modify our Prometheus-based graph
 We now need to modify our graph’s query to take advantage of our two new variables.
-In the upper right corner of our graph panel, click on the 3 dots and then Edit.
+1. In the upper right corner of our graph panel, click on the 3 dots and then Edit.
+![Edit Panel](img/variables5.png)
+2. In the formula, we will add the two metadata fields inside the curly brackets {}.  We will use `=~` instead of `=` because we want to be able to choose more than one service or http_status at a time.  Here is an updated formula:
 
-In the formula, we will add the two metadata fields inside the curly brackets {}.  We will use =~ instead of = because we want to be able to choose more than one service or http_status at a time.  Here is an updated formula:
-sum(rate(tns_request_duration_seconds_count{job=~"$service",status_code=~"$http_status"}[$__rate_interval])) by (job,status_code)
-Click Apply to update your panel.  The result should look like this below.
+`sum(rate(tns_request_duration_seconds_count{job=~"$service",status_code=~"$http_status"}[$__rate_interval])) by (job,status_code)`
+
+Click **Apply** to update your panel.  The result should look like this below.
+![End Result](img/variables6.png)
 
 
