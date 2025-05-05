@@ -11,6 +11,6 @@
 
 [Breakout 3: Leveraging Variables](./variables.md)
 
-[Bonus Content](./transformations.md)
+[Bonus Content: Transformations](./transformations.md)
 
 [(Optional) Take home exercise 2: Individual Challenge](./individual_challenge.md)
