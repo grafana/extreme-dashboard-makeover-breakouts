@@ -8,11 +8,10 @@
 3. On the Import Dashboard screen, in the Import via grafana.com field, type in `23384` and then click Load.
 
 4. You will be asked to choose three of your dashboard's data sources:
-
-  a. For TestData DB, choose *TestData DB*.
-  b. For Prometheus (Cloud), choose *Prometheus (Cloud)*.
-  c. For LokiNginxLogs, choose *LokiNginxLogs*.
-  d. Click on *Import*.
+    - For TestData DB, choose *TestData DB*.
+    - For Prometheus (Cloud), choose *Prometheus (Cloud)*.
+    - For LokiNginxLogs, choose *LokiNginxLogs*.
+    - Click on *Import*.
 
 For each of the panels:
 - Hover over the panel's title, click on the three vertical dots at the top right, and then click **Edit**.
