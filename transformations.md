@@ -28,9 +28,9 @@ Use this transformation to select a source of data and extract content from it i
   - Replace All Fields - (Optional) Select this option to hide all other fields and display only your calculated field in the visualization.
   - Keep Time - (Optional) Available only if Replace All Fields is true. Keeps the time field in the output.
 
-Go to the ([transformation documentation]((https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/transform-data/?utm_source=grafana#extract-fields)) for more general documentation.
+Go to the [transformation documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/transform-data/?utm_source=grafana#extract-fields)) for more general documentation.
 
-Often coupled the Extract Fields transform is([Organize Fields]https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/transform-data/?utm_source=grafana#organize-fields-by-name). Grafana displays a list of fields returned by the query, allowing you to perform the following actions:
+Often coupled the Extract Fields transform is [Organize Fields](https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/transform-data/?utm_source=grafana#organize-fields-by-name). Grafana displays a list of fields returned by the query, allowing you to perform the following actions:
 
 - Change field order - Hover over a field, and when your cursor turns into a hand, drag the field to its new position.
 - Hide or show a field - Use the eye icon next to the field name to toggle the visibility of a specific field.
