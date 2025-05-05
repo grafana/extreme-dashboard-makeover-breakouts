@@ -13,6 +13,10 @@
   c. For LokiNginxLogs, choose *LokiNginxLogs*.
   d. Click on *Import*.
 
+For each of the panels, click on the top right and edit
+Go to the transformations tab as seen below. 
+![Transformations tab](./img/transformations-tab.png)
+
 
 **Panel 1: Extract and Organize Fields**
 One common use of the `Extract Fields` use case is for when you want to visualize logs as a set of filterable tables. Extract fields will automatically parse your JSON logs (among other log formats) into structured columns.
