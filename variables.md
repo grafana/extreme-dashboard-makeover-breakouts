@@ -1,15 +1,17 @@
-Panels Controlled by Nested Variables
-To make dashboards more dynamic and scalable, it is common practice to leverage variables in your dashboards.  In this example, we are going to create a variable called “service” so that we can filter our data on services of interest.  Then, we want to see a graph that shows request rates of only specific HTTP status codes for a particular service. 
-Create our Prometheus-based graph
+# Panels Controlled by Nested Variables
+
+To make dashboards more dynamic and scalable, it is common practice to leverage variables in your dashboards.  In this example, we are going to create a variable called “service” so that we can filter our data on services of interest.  Then, we want to see a graph that shows request rates of only specific HTTP status codes for a particular service.
+
+## Create our Prometheus-based graph
 We will make a graph showing all data first.
 
-Add a new panel by clicking on Add … Visualization.
-Keep Visualization Type Time Series.
-Name the Panel > Title, “Microservices Request Rates by Service and Status Code”
-Choose Prometheus Data Source, Prometheus (Cloud).
-Use the formula below, switching from “Builder” mode to “Code” mode.  This Prometheus query provides request rates by job (aka “service”) and status code.
+1. Add a new panel by clicking on Add … Visualization.
+2. Keep Visualization Type Time Series.
+3. Name the Panel > Title, `Microservices Request Rates by Service and Status Code`
+4. Choose Prometheus Data Source, Prometheus (Cloud).
+5. Use the formula below, switching from `Builder` mode to `Code` mode.  This Prometheus query provides request rates by job (aka “service”) and status code.
 sum(rate(tns_request_duration_seconds_count{}[$__rate_interval])) by (job,status_code)
-
+![Dull Dashboard](img/dull-dashboard.png)
 
 In your query’s options, set the legend to: 
 {{job}} - {{status_code}}
