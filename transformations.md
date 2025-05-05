@@ -13,12 +13,16 @@
   c. For LokiNginxLogs, choose *LokiNginxLogs*.
   d. Click on *Import*.
 
-For each of the panels, click on the top right and edit
-Go to the transformations tab as seen below. 
+For each of the panels:
+- Hover over the panel's title, click on the three vertical dots at the top right, and then click **Edit**.
+- Go to the transformations tab as seen below.
 ![Transformations tab](./img/transformations-tab.png)
+- Click on the `Disable Transformation` button for each Transformation to enable and see how it works.  The button is highlighted below. 
+![Disable Transformation](./img/enable-transformation.png)
 
+Below are each of the six panels, its use case, and its configuration.
 
-**Panel 1: Extract and Organize Fields**
+**Top Left Panel: Extract and Organize Fields**
 One common use of the `Extract Fields` use case is for when you want to visualize logs as a set of filterable tables. Extract fields will automatically parse your JSON logs (among other log formats) into structured columns.
 
 Use this transformation to select a source of data and extract content from it in different formats. This transformation has the following fields:
@@ -40,4 +44,5 @@ Often coupled with the `Extract Fields` transform is [Organize Fields](https://g
 - Hide or show a field - Use the eye icon next to the field name to toggle the visibility of a specific field.
 - Rename fields - Type a new name in the “Rename ” box to customize field names.
 
-
+**Middle Left Panel: GroupBy**
+`GroupBy` is commonly used to simplify (aggregate) the view of a dataset.  In the example here,  
