@@ -8,6 +8,7 @@
 3. On the Import Dashboard screen, in the Import via grafana.com field, type in `23384` and then click Load.
 
 4. You will be asked to choose three of your dashboard's data sources:
+
   a. For TestData DB, choose *TestData DB*.
   b. For Prometheus (Cloud), choose *Prometheus (Cloud)*.
   c. For LokiNginxLogs, choose *LokiNginxLogs*.
@@ -23,6 +24,7 @@ For each of the panels:
 Below are each of the six panels, its use case, and its configuration.
 
 **Top Left Panel: Extract and Organize Fields**
+
 One common use of the `Extract Fields` use case is for when you want to visualize logs as a set of filterable tables. Extract fields will automatically parse your JSON logs (among other log formats) into structured columns.
 
 Use this transformation to select a source of data and extract content from it in different formats. This transformation has the following fields:
