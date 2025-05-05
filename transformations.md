@@ -47,3 +47,11 @@ Often coupled with the `Extract Fields` transform is [Organize Fields](https://g
 
 **Middle Left Panel: GroupBy**
 `GroupBy` is commonly used to simplify (aggregate) the view of a dataset.  In the example here,  
+
+This transformation has two steps. First, you specify one or multiple fields to group the data by. This will group all the same values of those fields together, as if you sorted them. For instance, here we group by the Server ID field to get all rows with the same value of Server ID grouped together.
+
+After choosing which field you want to group your data by, you add various calculations on the other fields, and apply the aggregation calculation to each group of rows. For instance, we could want to calculate the average CPU temperature for each of those servers. So, we can add the *mean* calculation applied on the Temperature field.  We may also want to know the current state of the server and so we would choose *Last* to get the most recent value per Server ID.
+![Group By](./img/groupBy.png)
+
+Go to the [group by documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/transform-data/#group-by) for more general documentation.
+
