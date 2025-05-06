@@ -83,4 +83,12 @@ The second transformation is called `Prepare Time Series`. This takes the merged
 ![Prepare Time Series](./img/preparetimeseries.png)
 Go to the [prepare time series documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/transform-data/#prepare-time-series) for more  details.
 
+## Top Right Panel: Merge and Convert Field Type
+Use Case: Unify two datasets with a common label
+This is similar to the use case above but we do not need to convert the data back into a timeseries.
+![BEFORE](./img/twotables.png)
+Below is what the data looks like after the merge.  
+![AFTER](./img/aftermerge.png)
+Note that we are also using the transformation, `Convert Field Type` for **Up** from metric type "time" to "number".  For the Uptime metric, we then use an override on the `Unit` field, setting the Unit to `milliseconds (ms)`.
+![Unit Override](./img/unitoverride.png)
 
