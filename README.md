@@ -13,4 +13,4 @@
 
 [Bonus Content: Transformations](./transformations.md)
 
-[(Optional) Take home exercise 2: Individual Challenge](./individual_challenge.md)
+[(Optional) Take home exercise: Individual Challenge](./individual_challenge.md)
