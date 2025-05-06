@@ -1,7 +1,11 @@
-## Transformations
+# Transformations
+The following sections describe seven use cases where Grafana Transformations are used.
+
 
 ![Transformation Examples](img/transforms.jpg)
-*Prerequisite*: We first need to import this dashboard. Follow these steps to Import it:
+**Prerequisite**: 
+
+We first need to import this dashboard. Follow these steps to Import it:
 
 1. Click the menu button (☰) at the top left, and then click on Dashboards.
 2. On the Dashboards screen, click the New button and then click Import.
@@ -20,7 +24,7 @@ For each of the panels:
 - Click on the `Disable Transformation` button for each Transformation to enable and see how it works.  The button is highlighted below. 
 ![Disable Transformation](./img/enable-transformation.png)
 
-Below are each of the six panels, its use case, and its configuration.
+
 
 **Top Left Panel: Extract and Organize Fields**
 
@@ -54,4 +58,15 @@ After choosing which field you want to group your data by, you add various calcu
 ![Group By](./img/groupBy.png)
 
 Go to the [group by documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/transform-data/#group-by) for more general documentation.
+
+**Lower Left Panel: Join by Field**
+
+`Join by Field` is commonly used to perform SQL-like table joins between two separate queries.  In this example, we have two queries:
+1. Prometheus data (web requests) for 3 services
+2. Geo-coordinates for those same 3 services
+We would like to put the service data on a map.  To join Prometheus time series data with a table, prior to using the Join by Field transformation, the format of your Prometheus data needs to be set to `Table` as seen in the picture below.
+![Join by Field](./img/jointables.png)
+Looking at the transformation, we are performing an outer join on a common field called "service".
+Also note that to have this "zoomed in" map view, we first (1) zoom into the datapoints using the +/- in the top left of the map; and then (2) we click on "Use current map settings" for the map panel to remember the amount of zoom and which specific geocoordinates to use for map centering.
+![Outer Join](./img/outerjoin.png)
 
