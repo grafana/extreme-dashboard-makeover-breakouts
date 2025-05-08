@@ -12,7 +12,7 @@ Follow these steps to Import it:
 4. You will be asked to choose three of your dashboard's data sources:
     - For TestData DB, choose `TestData DB`.
     - For Prometheus (Cloud), choose `Prometheus (Cloud)`.
-    - For LokiNginxLogs, choose `LokiNginxLogs`.
+    - For LokiNGINX, choose `Loki (Cloud)`.
     - Click on *Import*.
 
 *While our existing dashboard already has useful information such as RED metrics - request rates, errors, and duration/latency - for our service as well as state information for the underlying Kubernetes pods and end-user activity from a geographic lens, our aim is to make the information on the dashboard easier to understand and more visually appealing.*
