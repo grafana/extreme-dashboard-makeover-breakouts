@@ -26,32 +26,58 @@ Now, we create our dashboard variables to control this panel.
 ![Gear Icon](img/variables3.png)
 
 2. Configure the first variable named “service”:
-  a. Select variable type: *Query*
-  b. General > Name: *service*
-  c. General > Label: *Service*
-  d. Query options > Data source: *Prometheus (Cloud)*
-  e. Query options > Query > Query type: *Label Values*.  We want to extract the values for the label named `job`.
-  f. Query options > Query > **Label**: `job`
-  g. Query options > Query > **Metric**: *tns_request_duration_seconds_count*.  We could have chosen any tns_* metric that has data for our 3 services.
-  h. Query options > Query > **Label filters**: (leave this blank)
-  i. Selection options > Multi-value: (leave unchecked)
-  j. Selection options > Include All option: leave unchecked
-  k. Click **Run Query**.  It should return `tns-app`, `tns-db`, and `tns-loadgen`.
-  l. Click **Apply**.
-3. Configure the second variable, “http status”, who relies upon the value of the $service variable.
-  a. Click on **+ New variable**.
-  b. Select variable type: *Query*
-  c. General > Name: *http_status*
-  d. General > Label: *HTTP Status Code*
-  e. Query options > Data source: *Prometheus (Cloud)*
-  f. Query options > Query > Query type: *Label Values*.  We want to extract the values for the label named `job`.
-  g. Query options > Query > **Label**: *status_code*
-  h. Query options > Query > **Metric**: *tns_request_duration_seconds_count*
-  i. Query options > Query > **Label filters**: `job **=~** $service`
-  j. Selection options > Multi-value: check
-  k. Selection options > Include All option: check
-  l. Click **Run Query**.  It should return a few status codes.
-  m. Click Apply.
+
+   a. Select variable type: *Query*
+
+   b. General > Name: *service*
+
+   c. General > Label: *Service*
+
+   d. Query options > Data source: *Prometheus (Cloud)*
+
+   e. Query options > Query > Query type: *Label Values*.  We want to extract the values for the label named `job`.
+  
+    f. Query options > Query > **Label**: `job`
+  
+    g. Query options > Query > **Metric**: *tns_request_duration_seconds_count*.  We could have chosen any tns_* metric that has data for our 3 services.
+  
+    h. Query options > Query > **Label filters**: (leave this blank)
+   
+    i. Selection options > Multi-value: (leave unchecked)
+  
+    j. Selection options > Include All option: leave unchecked
+  
+    k. Click **Run Query**.  It should return `tns-app`, `tns-db`, and `tns-loadgen`.
+  
+    l. Click **Apply**.
+  
+4. Configure the second variable, “http status”, who relies upon the value of the $service variable.
+    a. Click on **+ New variable**.
+   
+    b. Select variable type: *Query*
+   
+    c. General > Name: *http_status*
+   
+    d. General > Label: *HTTP Status Code*
+   
+    e. Query options > Data source: *Prometheus (Cloud)*
+   
+    f. Query options > Query > Query type: *Label Values*.  We want to extract the values for the label named `job`.
+   
+    g. Query options > Query > **Label**: *status_code*
+   
+    h. Query options > Query > **Metric**: *tns_request_duration_seconds_count*
+   
+    i. Query options > Query > **Label filters**: `job **=~** $service`
+   
+    j. Selection options > Multi-value: check
+   
+    k. Selection options > Include All option: check
+   
+    l. Click **Run Query**.  It should return a few status codes.
+   
+    m. Click Apply.
+   
 After steps 2 & 3, your dashboard variables should look like this below:
 ![Variable Settings](img/variables4.png)
 
