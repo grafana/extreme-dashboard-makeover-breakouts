@@ -15,15 +15,15 @@ Before we dive into refinement, let's get oriented.
 1. Open your dashboard from Breakout 1 (or the imported version).
 2. Look for the **Assistant icon** in the top navigation bar — it looks like a sparkle/star icon. Click it to open the Assistant sidebar.
 
-    > TODO: Screenshot of the Assistant icon location in the top nav
+    ![Assistant Icon](img/ai-assisted-breakout/assistant-icon-top-nav.png)
 
-3. At the top of the Assistant sidebar, you'll see a model or mode selector. Click on it and switch to the **dashboarding version** of Assistant. This version is specifically tuned for dashboard creation and editing tasks.
+3. At the bottom of the Assistant sidebar, you'll see a model or mode selector. Click on it and switch to the **dashboarding version** of Assistant. This version is specifically tuned for dashboard creation and editing tasks.
 
-    > TODO: Screenshot of the Assistant mode selector showing the dashboarding option
+    ![Assistant Mode Selector](img/ai-assisted-breakout/assistant-mode-selector-dashboarding.png)
 
 4. You should now see a chat interface on the right side of your screen, with your dashboard visible on the left.
 
-    > TODO: Screenshot of the Assistant sidebar open alongside the dashboard
+    ![Assistant Sidebar Open](img/ai-assisted-breakout/assistant-sidebar-open.png)
 
 You're ready to go. Every prompt below is written out exactly as you should type it — feel free to copy and paste, or rephrase in your own words.
 
@@ -46,7 +46,7 @@ what the panel shows and why it matters for monitoring our service.
 
 Once Assistant finishes, hover over any panel title — you should see an "i" icon. Click it to verify the description was added.
 
-> TODO: Screenshot showing a panel's description tooltip after Assistant adds descriptions
+![Panel Descriptions Added](img/ai-assisted-breakout/exercise1-panel-descriptions-added.png)
 
 ### Exercise 2: Standardize threshold colors across panels
 
@@ -57,12 +57,12 @@ Type this into Assistant:
 ```
 Update the threshold colors on all panels in this dashboard to use a consistent
 scheme: blue for OK/normal values, yellow for warning states, and orange for
-critical states.
+critical states. Omit the geo map for this change.
 ```
 
 Review the panels to see the color changes applied uniformly.
 
-> TODO: Screenshot showing multiple panels with the consistent blue/yellow/orange threshold scheme
+![Standardized Thresholds](img/ai-assisted-breakout/exercise2-standardized-thresholds.png)
 
 ### Exercise 3: Batch rename panels for clarity
 
@@ -76,7 +76,7 @@ by Service" or "Pod Status - Kubernetes Containers".
 
 Check the dashboard to see the updated panel titles.
 
-> TODO: Screenshot showing the dashboard with renamed panel titles
+![Renamed Panels](img/ai-assisted-breakout/exercise3-renamed-panels.png)
 
 **Pause and reflect:** You just made three sweeping changes to your dashboard — descriptions, thresholds, and naming — in about three prompts. In Breakout 1, a single panel's threshold configuration took multiple steps. That's the power of conversational refinement.
 
@@ -97,36 +97,20 @@ readable for people with color vision deficiency.
 
 Compare what Assistant does to the manual overrides you configured in Breakout 1 for the Latency panel.
 
-> TODO: Screenshot showing accessibility improvements applied by Assistant (e.g., differentiated line styles)
+![Colorblind Accessibility Audit](img/ai-assisted-breakout/exercise4-colorblind-accessibility-audit.png)
 
-### Exercise 5: Improve value mappings conversationally
-
-In Breakout 1, configuring value mappings on the SLO Status panel was a multi-step process: open the panel, find value mappings, add each range one by one, set display text, pick colors, and save. Let's do something similar with a single sentence.
-
-```
-On the K8s Service Status panel, make sure the values are mapped so that 1
-displays as "UP" in blue and 0 displays as "DOWN" in orange.
-```
-
-> TODO: Screenshot of the K8s Service Status panel after Assistant applies the value mappings
-
-### Exercise 6: Fine-tune a visualization type
+### Exercise 5: Fine-tune a visualization type
 
 Sometimes you want to experiment with how data is presented without going through the full panel editing workflow.
-
-```
-Change the Server Request Rates per Second panel to use an LCD-style bar gauge
-display with horizontal orientation.
-```
-
-If the panel was already in that state from Breakout 1, try a variation:
 
 ```
 Switch the Server Request Rates per Second panel to a gradient bar gauge instead
 of retro LCD and show me how it looks.
 ```
 
-> TODO: Screenshot showing the panel after the visualization change
+You can choose which variant you prefer - Grafana Assistant makes it simple to try different styles out.
+
+![Gradient Bar Gauge](img/ai-assisted-breakout/exercise5-gradient-bar-gauge.png)
 
 ---
 
@@ -134,34 +118,39 @@ of retro LCD and show me how it looks.
 
 Now we'll use Assistant for tasks that go beyond what we covered in Breakout 1 — things that would require deeper Grafana expertise or significantly more time to do manually.
 
-### Exercise 7: Add a dashboard variable for filtering
+### Exercise 6: Add a dashboard variable for filtering
 
 Dashboard variables let users filter all panels at once. Configuring them manually requires understanding query syntax for variable population and modifying each panel's queries. Let's let Assistant handle it.
 
 ```
-Add a dashboard variable called "datacenter" that lets users filter all panels
-by data center. Use the available label values from the Prometheus data source.
+I want a service filter dropdown at the top of this dashboard. Pull the service names from the Sockshop Prometheus metrics — just show the short names like "carts" and "orders", not the full namespace path. Let me select multiple services or all at once, and sort them alphabetically. Wire the filter into the Request Latency and K8s Service Status panels expressions. 
 ```
 
-After Assistant creates the variable, you should see a dropdown at the top of your dashboard. Try selecting different values and watch the panels update.
+After Assistant creates the variable, you should see a dropdown at the top of your dashboard. Try selecting different services and watch the panels update.
 
-> TODO: Screenshot showing the new datacenter variable dropdown at the top of the dashboard
+![Service Variable Dropdown](img/ai-assisted-breakout/exercise6-variable-dropdown.png)
 
-### Exercise 8: Add drilldown links in bulk
+Notice how the filter cascades through: the Latency panel shows only the selected service, and the polystat updates to show just that container's status.
 
-In Breakout 1, we manually added a drilldown data link to one panel. Let's add navigation links across multiple panels at once.
+<p float="left">
+  <img src="img/ai-assisted-breakout/exercise6-latency-filtered-carts.png" width="350" height="350" alt="Latency Filtered to Carts" />
+  <img src="img/ai-assisted-breakout/exercise6-polystat-carts-up.png" width="350" height="350" alt="Polystat Filtered to Carts" />
+</p>
+
+### Exercise 7: Add a drilldown data link
+
+In Breakout 1, adding a single data link to the SLO Status panel took several steps — finding the Data Links section, typing the URL, toggling options, and saving. Let's do the same thing with one sentence.
 
 ```
-Add a data link to the SLO Status, Server Request Rates, and Latency panels
-that drills down to the Sockshop Performance dashboard. The link should open
-in a new tab.
+Add a data link to the Request Latency panel titled "Sockshop Service Details"
+that navigates to the Sockshop Performance dashboard and opens in a new tab.
 ```
 
-Click on any of those panels to verify the drilldown link appears and navigates correctly.
+Click anywhere on the Request Latency panel to verify the drilldown link appears and navigates to the Sockshop Performance dashboard.
 
-> TODO: Screenshot showing a drilldown link appearing on click
+![Drilldown Data Link](img/ai-assisted-breakout/exercise7-data-link.png)
 
-### Exercise 9: Query review and optimization
+### Exercise 8: Query review and optimization
 
 This is something that's hard to do manually unless you're already fluent in PromQL and LogQL. Ask Assistant to audit the queries powering your dashboard.
 
@@ -172,9 +161,9 @@ better performance or clarity? Explain what each query does in plain language.
 
 Read through Assistant's analysis. Even if you don't change anything, this is the kind of insight that normally requires an in-depth review.
 
-> TODO: Screenshot of Assistant's query analysis output in the sidebar
+![Query Optimization Review](img/ai-assisted-breakout/exercise8-query-optimization-review.png)
 
-### Exercise 10: Discover what you're missing
+### Exercise 9: Discover what you're missing
 
 One of Assistant's most valuable capabilities is identifying monitoring gaps — metrics and data that are available in your environment but not yet visualized.
 
@@ -190,7 +179,9 @@ If Assistant suggests panels that look useful, you can follow up:
 Add those suggested panels to the dashboard.
 ```
 
-> TODO: Screenshot showing newly suggested panels added to the dashboard
+![Gap Analysis with Settings](img/ai-assisted-breakout/exercise9-gap-analysis-with-settings.png)
+
+![New Panel Added](img/ai-assisted-breakout/exercise9-new-panel-added.png)
 
 ---
 
