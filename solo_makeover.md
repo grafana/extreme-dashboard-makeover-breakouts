@@ -185,36 +185,52 @@ For a bit of flair, we'd like to add our company logo.  To do so:
 6. Remove the Panel Title, Click on _Transparent Background_ and click *Save Dashboard*.
 7. Size the panel appropriately.
 
-## Arrange our panels
-Finally, we need to arrange our panels so that the most important graphs are in that Z pattern, spaced appropriately, and properly sized.
-We may need to add some spacing to our dashboard.  To do so, choose the blank text panel we have saved in our library.
+## Arrange and group our panels
+Finally, we need to arrange our panels so that the most important graphs are in that Z pattern, spaced appropriately, and properly sized. 
+
+We'll also group our panels into three tabs, each answering a single question: *How healthy is the service?*, *Is the platform up?*, and *How does it feel to our users?* Showcasing tabs this way keeps each grouping tight and gives our viewers a clear mental model.
+
+You can drag a panel into a tab by clicking on it, dragging it to the new tab, and then dropping it on the canvas, like this:
+
+![Drag a panel to a tab](img/drag-to-tab.gif)
 
 1. First, let's configure this dashboard to group into tabs. Scroll to the bottom of the dashboard and click on the _Group panels_ button, selecting _Group into tab_. This will place all panels into a single tab.
-2. Click on the tab ("New tab") to select it, and use the properties panel on the right to change its title to *Service Health (RED)*. Set its *Layout* type to *Custom*.
-2. Hover over the row of tabs and click on the button _Add tab_. With the row selected, use the properties panel on the right to set the row title to *Key Performance Indicators*. Leave its *Layout* type to *Auto*, and set the *Max columns* to **2**.
-3. Now click and drag each of the following panels into the Key Performance Indicators row:
+2. Click on the tab ("New tab") to select it, and use the properties panel on the right to change its title to *Service Health (RED)*. Set its *Layout* type to *Custom*. This tab holds all three RED signals — **R**ate, **E**rrors, and **D**uration — so they can be read together.
+3. Hover over the row of tabs and click on the button _New tab_. With the new tab selected, use the properties panel on the right to set its title to *Infrastructure*. Leave its *Layout* type to *Auto*, and set the *Max columns* to **2**.
+4. Click _New tab_ once more. Set this third tab's title to *Customer Experience*, leaving its *Layout* type as *Auto* with *Max columns* set to **2**.
+5. Now click and drag each panel into the correct tab.
+
+   Into the *Infrastructure* tab:
    * K8s Service Status
+   * Infrastructure - Error Score
+
+   Into the *Customer Experience* tab:
    * Customer Activity
    * Service Apdex
-   * Infrastructure - Error Score
-   * Latency quantiles
-6. Rearrange the panels on the _Service RED Metrics_ tab so that the top row has:
-   - Company logo
-   - SLO Status (Errors) per Data Center
-   - Server Request Rates per Second
-    The second row should have the Latency for Sockshop App panel, expanded to full width.
+
+6. Everything else stays on the *Service Health (RED)* tab. Arrange the top row left-to-right so the eye lands on the most important panel first — the top-left corner is where a viewer's gaze naturally starts:
+   - SLO Status (Errors) per Data Center (top-left — this is the panel we most want people to see)
+   - Server Request Rates per Second (center)
+   - Company logo (top-right, kept small)
+
+   The second row should have:
+    - Latency for Sockshop App panel
+    - side-by-side with the Latency quantiles panel.
+   Keeping both latency panels together puts the full Duration story in one place.
 
 After arranging your panels, your dashboard should look something similar to this:
 
-![Final-Dashboard One](img/dashboard-one.png)
+![Final-Dashboard One](img/dashboard-one.webp)
 
 If you didn't quite finish but would like a working copy of our result you can import the dashboard:
 Steps to Import:
-1. Click the menu button (☰) at the top left, and then click on *Dashboards*.
-2. On the Dashboards screen, click the *New* button and then click *Import*.
-3. In the Import via grafana.com field, type in `16414` and then click *Load*.
-4. You will be asked to choose three of your dashboard's data sources:
+1. Go to https://github.com/grafana/extreme-dashboard-makeover-breakouts/tree/main
+2. Find the file `dashboards/completed_dashboard.json` and download it.
+3. In Grafana, click the menu button (☰) at the top left, and then click on *Dashboards*.
+4. On the Dashboards screen, click the *New* button and then click *Import*.
+5. Upload the downloaded file.
+6. You will be asked to choose three of your dashboard's data sources:
     * For TestData DB, choose `TestData DB`.
     * For Prometheus (Cloud), choose `Prometheus (Cloud)`.
-    * For LokiNginxLogs, choose `LokiNginxLogs`.
+    * For LokiNginxLogs, choose `Loki (Cloud)`.
     * Click on *Import*.
