@@ -1,0 +1,64 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+:root {
+  --ifm-color-primary: #f05a28;
+  --ifm-color-primary-dark: #ed4710;
+  --ifm-color-primary-darker: #df430f;
+  --ifm-color-primary-darkest: #b8370d;
+  --ifm-color-primary-light: #f27345;
+  --ifm-color-primary-lighter: #f37e54;
+  --ifm-color-primary-lightest: #f59d80;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+
+  --ifm-font-family-base: Inter, sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #ff8d63;
+  --ifm-color-primary-dark: #ff6f3a;
+  --ifm-color-primary-darker: #ff6128;
+  --ifm-color-primary-darkest: #e84600;
+  --ifm-color-primary-light: #ffab8b;
+  --ifm-color-primary-lighter: #ffb99e;
+  --ifm-color-primary-lightest: #ffd6c5;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Numbered circles for ordered lists, like Grafana docs */
+.markdown > ol > li::before {
+  content: counter(docs-counter);
+  font-size: 14px;
+  font-weight: 700;
+  position: absolute;
+  --size: 24px;
+  left: calc(-1 * var(--size) - 10px);
+  line-height: var(--size);
+  width: var(--size);
+  height: var(--size);
+  top: 0;
+  background: var(--ifm-hover-overlay);
+  border-radius: 50%;
+  text-align: center;
+}
+
+.markdown > ol {
+  list-style: none;
+}
+
+.markdown > ol > li {
+  margin: 0 0 10px;
+  counter-increment: docs-counter;
+  position: relative;
+  line-height: 24px;
+}

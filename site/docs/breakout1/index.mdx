@@ -1,0 +1,31 @@
+---
+sidebar_position: 2
+---
+
+import DocCardList from '@theme/DocCardList';
+
+# Breakout 1: Solo Makeover
+
+We will be revamping the following dashboard.
+
+![Dull Dashboard](/img/breakout1/dull-dashboard.png)
+
+While our existing dashboard already has useful information such as RED metrics (request rates, errors, and duration/latency) for our service, as well as state information for the underlying Kubernetes pods and end-user activity from a geographic lens, our aim is to make the information on the dashboard easier to understand and more visually appealing.
+
+## Prerequisite: import the starter dashboard
+
+1. Click the menu button (☰) at the top left, and then click on *Dashboards*.
+2. On the Dashboards screen, click the *New* button and then click *Import*.
+3. On the Import Dashboard screen, in the *Import via grafana.com* field, type in `16413` and then click *Load*.
+4. You will be asked to choose three of your dashboard's data sources:
+    - For TestData DB, choose `TestData DB`.
+    - For Prometheus (Cloud), choose `Prometheus (Cloud)`.
+    - For LokiNGINX, choose `Loki (Cloud)`.
+    - Click on *Import*.
+
+## Steps
+
+Work through each panel makeover in order. Each step is self-contained and ends with a screenshot of the expected result.
+
+
+<DocCardList />
