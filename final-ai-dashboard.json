@@ -1,0 +1,1305 @@
+{
+    "annotations": [
+      {
+        "kind": "AnnotationQuery",
+        "spec": {
+          "builtIn": true,
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "query": {
+            "datasource": {
+              "name": "-- Grafana --"
+            },
+            "group": "grafana",
+            "kind": "DataQuery",
+            "spec": {
+              "limit": 100,
+              "matchAny": false,
+              "tags": [],
+              "type": "dashboard"
+            },
+            "version": "v0"
+          }
+        }
+      }
+    ],
+    "cursorSync": "Off",
+    "editable": true,
+    "elements": {
+      "panel-11": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "loki-nginx"
+                      },
+                      "group": "loki",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "expr": "sum by (geoip_country_code) (count_over_time({filename=~`.*json_access.log.*`} | json | geoip_country_code != \"\" | __error__=\"\" [$__interval]))",
+                        "legendFormat": "{{geoip_country_code}}",
+                        "queryType": "instant"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "Hits by Geolocation"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "maxDataPoints": 1
+              },
+              "transformations": []
+            }
+          },
+          "description": "Geographic distribution of inbound HTTP requests derived from nginx access logs enriched with GeoIP. Larger stars indicate higher hit counts from that country. Useful for understanding traffic patterns, planning capacity by region, and spotting unexpected spikes from unusual geographies.",
+          "id": 11,
+          "links": [],
+          "title": "Request Volume - Geographic Distribution by Country",
+          "transparent": true,
+          "vizConfig": {
+            "group": "geomap",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "custom": {
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "dark-purple",
+                        "value": 0
+                      },
+                      {
+                        "color": "dark-orange",
+                        "value": 90
+                      }
+                    ]
+                  }
+                },
+                "overrides": []
+              },
+              "options": {
+                "basemap": {
+                  "config": {
+                    "server": "ocean"
+                  },
+                  "name": "Layer 0",
+                  "type": "esri-xyz"
+                },
+                "controls": {
+                  "mouseWheelZoom": false,
+                  "showAttribution": false,
+                  "showDebug": false,
+                  "showMeasure": false,
+                  "showScale": false,
+                  "showZoom": false
+                },
+                "layers": [
+                  {
+                    "config": {
+                      "showLegend": false,
+                      "style": {
+                        "color": {
+                          "field": "Value #Hits by Geolocation",
+                          "fixed": "dark-green"
+                        },
+                        "opacity": 1,
+                        "rotation": {
+                          "fixed": 0,
+                          "max": 360,
+                          "min": -360,
+                          "mode": "mod"
+                        },
+                        "size": {
+                          "field": "Value #Hits by Geolocation",
+                          "fixed": 5,
+                          "max": 15,
+                          "min": 3
+                        },
+                        "symbol": {
+                          "fixed": "img/icons/marker/star.svg",
+                          "mode": "fixed"
+                        },
+                        "text": {
+                          "field": "geoip_country_code",
+                          "fixed": "",
+                          "mode": "fixed"
+                        },
+                        "textConfig": {
+                          "fontSize": 12,
+                          "offsetX": 0,
+                          "offsetY": 0,
+                          "textAlign": "center",
+                          "textBaseline": "middle"
+                        }
+                      }
+                    },
+                    "location": {
+                      "lookup": "geoip_country_code",
+                      "mode": "lookup"
+                    },
+                    "name": "Layer 2",
+                    "tooltip": true,
+                    "type": "markers"
+                  }
+                ],
+                "tooltip": {
+                  "mode": "details"
+                },
+                "view": {
+                  "allLayers": true,
+                  "dashboardVariable": false,
+                  "id": "coords",
+                  "lat": 22.862454,
+                  "lon": -17.852515,
+                  "noRepeat": false,
+                  "zoom": 2.48
+                }
+              }
+            },
+            "version": "13.1.0-25241150568"
+          }
+        }
+      },
+      "panel-2": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P53465F745837BCFD"
+                      },
+                      "group": "grafana-testdata-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Ashburn",
+                        "max": 1.7,
+                        "min": 0,
+                        "scenarioId": "random_walk",
+                        "seriesCount": 1,
+                        "spread": 0.3
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P53465F745837BCFD"
+                      },
+                      "group": "grafana-testdata-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "N. California",
+                        "max": 0.5,
+                        "min": 0,
+                        "scenarioId": "random_walk",
+                        "seriesCount": 1,
+                        "spread": 0.1
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P53465F745837BCFD"
+                      },
+                      "group": "grafana-testdata-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "London",
+                        "max": 1.5,
+                        "min": 0,
+                        "scenarioId": "random_walk",
+                        "seriesCount": 1,
+                        "spread": 0.3
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "C"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P53465F745837BCFD"
+                      },
+                      "group": "grafana-testdata-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Frankfurt",
+                        "max": 1.5,
+                        "min": 0,
+                        "scenarioId": "random_walk",
+                        "seriesCount": 1,
+                        "spread": 0.1
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "D"
+                  }
+                }
+              ],
+              "queryOptions": {},
+              "transformations": []
+            }
+          },
+          "description": "Current SLO health for error rates across each data center. Color coding: blue = OK, light-orange = Service Degraded, orange = SLO Violation. Use this to quickly spot regional degradations and determine if an incident is localized or global.",
+          "id": 2,
+          "links": [],
+          "title": "Error SLO Status - By Data Center",
+          "transparent": true,
+          "vizConfig": {
+            "group": "stat",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "links": [
+                    {
+                      "targetBlank": true,
+                      "title": "Open Sockshop Performance →",
+                      "url": "/d/b2kdXLwnz/sockshop-performance?orgId=1&from=${__from}&to=${__to}"
+                    }
+                  ],
+                  "mappings": [
+                    {
+                      "options": {
+                        "from": 0,
+                        "result": {
+                          "color": "#0072B2",
+                          "index": 0,
+                          "text": "OK"
+                        },
+                        "to": 1
+                      },
+                      "type": "range"
+                    },
+                    {
+                      "options": {
+                        "from": 1,
+                        "result": {
+                          "color": "#F0A500",
+                          "index": 1,
+                          "text": "Service Degraded"
+                        },
+                        "to": 2
+                      },
+                      "type": "range"
+                    },
+                    {
+                      "options": {
+                        "from": 2,
+                        "result": {
+                          "color": "#D55E00",
+                          "index": 2,
+                          "text": "SLO Violation"
+                        },
+                        "to": 100
+                      },
+                      "type": "range"
+                    }
+                  ],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "blue",
+                        "value": 0
+                      },
+                      {
+                        "color": "yellow",
+                        "value": 1
+                      },
+                      {
+                        "color": "orange",
+                        "value": 2
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": []
+              },
+              "options": {
+                "colorMode": "background",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "percentChangeColorMode": "standard",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showPercentChange": false,
+                "textMode": "auto",
+                "wideLayout": true
+              }
+            },
+            "version": "13.1.0-25241150568"
+          }
+        }
+      },
+      "panel-23": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "prometheus-cloud"
+                      },
+                      "group": "prometheus",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "exemplar": true,
+                        "expr": "histogram_quantile(0.95, sum(rate(request_duration_seconds_bucket{app=\"sockshop\",job=~\"([^/]+/)?($service)\"}[5m])) by (le,job)) * 1000",
+                        "interval": "",
+                        "legendFormat": "{{job}}"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                }
+              ],
+              "queryOptions": {},
+              "transformations": [
+                {
+                  "group": "renameByRegex",
+                  "kind": "Transformation",
+                  "spec": {
+                    "options": {
+                      "regex": "(.+)\\/(.+)",
+                      "renamePattern": "$2"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "description": "95th-percentile end-to-end request latency (ms) per sockshop microservice (carts, catalogue, user, payment). P95 captures the experience of your slowest users without being skewed by rare outliers. Rising or diverging lines indicate a specific service is degrading and may be impacting checkout or browsing flows.",
+          "id": 23,
+          "links": [],
+          "title": "Request Latency - P95 by Sockshop Service",
+          "transparent": true,
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "showValues": false,
+                    "spanNulls": true,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "links": [
+                    {
+                      "targetBlank": true,
+                      "title": "Sockshop Service Details",
+                      "url": "/d/b2kdXLwnz/sockshop-performance?orgId=1&from=${__from}&to=${__to}"
+                    }
+                  ],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "blue",
+                        "value": 0
+                      },
+                      {
+                        "color": "yellow",
+                        "value": 500
+                      },
+                      {
+                        "color": "orange",
+                        "value": 1000
+                      }
+                    ]
+                  },
+                  "unit": "ms"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "carts"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "#0072B2",
+                          "mode": "fixed"
+                        }
+                      },
+                      {
+                        "id": "custom.lineStyle",
+                        "value": {
+                          "fill": "solid"
+                        }
+                      },
+                      {
+                        "id": "custom.lineWidth",
+                        "value": 2
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "catalogue"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "#E69F00",
+                          "mode": "fixed"
+                        }
+                      },
+                      {
+                        "id": "custom.lineStyle",
+                        "value": {
+                          "dash": [
+                            12,
+                            4
+                          ],
+                          "fill": "dash"
+                        }
+                      },
+                      {
+                        "id": "custom.lineWidth",
+                        "value": 2
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "orders"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "#009E73",
+                          "mode": "fixed"
+                        }
+                      },
+                      {
+                        "id": "custom.lineStyle",
+                        "value": {
+                          "dash": [
+                            4,
+                            4
+                          ],
+                          "fill": "dash"
+                        }
+                      },
+                      {
+                        "id": "custom.lineWidth",
+                        "value": 2
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "payment"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "#D55E00",
+                          "mode": "fixed"
+                        }
+                      },
+                      {
+                        "id": "custom.lineStyle",
+                        "value": {
+                          "dash": [
+                            0,
+                            6
+                          ],
+                          "fill": "dot"
+                        }
+                      },
+                      {
+                        "id": "custom.lineWidth",
+                        "value": 2
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "shipping"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "#56B4E9",
+                          "mode": "fixed"
+                        }
+                      },
+                      {
+                        "id": "custom.lineStyle",
+                        "value": {
+                          "dash": [
+                            18,
+                            4
+                          ],
+                          "fill": "dash"
+                        }
+                      },
+                      {
+                        "id": "custom.lineWidth",
+                        "value": 2
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "user"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "#CC79A7",
+                          "mode": "fixed"
+                        }
+                      },
+                      {
+                        "id": "custom.lineStyle",
+                        "value": {
+                          "dash": [
+                            10,
+                            3,
+                            3,
+                            3
+                          ],
+                          "fill": "dash"
+                        }
+                      },
+                      {
+                        "id": "custom.lineWidth",
+                        "value": 2
+                      }
+                    ]
+                  }
+                ]
+              },
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              }
+            },
+            "version": "13.1.0-25241150568"
+          }
+        }
+      },
+      "panel-25": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [],
+              "queryOptions": {},
+              "transformations": []
+            }
+          },
+          "description": "",
+          "id": 25,
+          "links": [],
+          "title": "",
+          "transparent": true,
+          "vizConfig": {
+            "group": "text",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {},
+                "overrides": []
+              },
+              "options": {
+                "code": {
+                  "language": "plaintext",
+                  "showLineNumbers": false,
+                  "showMiniMap": false
+                },
+                "content": "\n\n<center><img height=300 align=\"center\" src=\"https://i.pinimg.com/originals/74/a0/a5/74a0a51848fb3717c671598dc675c654.jpg\" ></center>",
+                "mode": "html"
+              }
+            },
+            "version": "13.1.0-25241150568"
+          }
+        }
+      },
+      "panel-3": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P53465F745837BCFD"
+                      },
+                      "group": "grafana-testdata-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Web Replica 1",
+                        "scenarioId": "random_walk",
+                        "seriesCount": 1
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "Web Replica 1"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P53465F745837BCFD"
+                      },
+                      "group": "grafana-testdata-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Web Replica 2",
+                        "scenarioId": "random_walk",
+                        "seriesCount": 1
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "Web Replica 2"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P53465F745837BCFD"
+                      },
+                      "group": "grafana-testdata-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Web Replica 3",
+                        "scenarioId": "random_walk",
+                        "seriesCount": 1
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "Web Replica 3"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P53465F745837BCFD"
+                      },
+                      "group": "grafana-testdata-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Web Replica 4",
+                        "scenarioId": "random_walk",
+                        "seriesCount": 1
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "Web Replica 4"
+                  }
+                }
+              ],
+              "queryOptions": {},
+              "transformations": []
+            }
+          },
+          "description": "Instantaneous request throughput (req/s) for each web replica. Bars turning yellow or orange indicate a replica is approaching its traffic threshold. Watch for imbalance between replicas, which can signal a load-balancer misconfiguration or a failing instance.",
+          "id": 3,
+          "links": [],
+          "title": "Request Rate - Per Second by Web Replica",
+          "transparent": true,
+          "vizConfig": {
+            "group": "bargauge",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "links": [
+                    {
+                      "targetBlank": true,
+                      "title": "Open Sockshop Performance →",
+                      "url": "/d/b2kdXLwnz/sockshop-performance?orgId=1&from=${__from}&to=${__to}"
+                    }
+                  ],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "blue",
+                        "value": 0
+                      },
+                      {
+                        "color": "yellow",
+                        "value": 80
+                      },
+                      {
+                        "color": "orange",
+                        "value": 90
+                      }
+                    ]
+                  }
+                },
+                "overrides": []
+              },
+              "options": {
+                "displayMode": "gradient",
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": false
+                },
+                "maxVizHeight": 300,
+                "minVizHeight": 10,
+                "minVizWidth": 0,
+                "namePlacement": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showUnfilled": true,
+                "sizing": "auto",
+                "valueMode": "color"
+              }
+            },
+            "version": "13.1.0-25241150568"
+          }
+        }
+      },
+      "panel-31": {
+        "kind": "LibraryPanel",
+        "spec": {
+          "id": 31,
+          "libraryPanel": {
+            "name": "Service APDEX",
+            "uid": "4H8NV-s7k"
+          },
+          "title": "User Satisfaction - APDEX Score by Service"
+        }
+      },
+      "panel-33": {
+        "kind": "LibraryPanel",
+        "spec": {
+          "id": 33,
+          "libraryPanel": {
+            "name": "Infrastructure - Error Score",
+            "uid": "4MZ88vQnk"
+          },
+          "title": "Error Score - Infrastructure Health"
+        }
+      },
+      "panel-35": {
+        "kind": "LibraryPanel",
+        "spec": {
+          "id": 35,
+          "libraryPanel": {
+            "name": "Latency profile, Sockshop Application",
+            "uid": "4WKrEvQ7k"
+          },
+          "title": "Latency Distribution - Percentile Breakdown by Service"
+        }
+      },
+      "panel-7": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "prometheus-cloud"
+                      },
+                      "group": "prometheus",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "app": "grafana-assistant-app",
+                        "expr": "up{app=\"sockshop\",container=~\"$service\"}",
+                        "instant": true,
+                        "legendFormat": "{{container}}",
+                        "queryType": "instant",
+                        "range": false
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                }
+              ],
+              "queryOptions": {},
+              "transformations": []
+            }
+          },
+          "description": "UP/DOWN availability of every Kubernetes service in the sockshop app, sourced from the Prometheus `up` metric. A hexagon turning orange means that container/service is unreachable. Use this as a fast at-a-glance health grid before drilling into individual service dashboards.",
+          "id": 7,
+          "links": [],
+          "title": "Container Availability - Kubernetes Services",
+          "transparent": true,
+          "vizConfig": {
+            "group": "grafana-polystat-panel",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "mappings": [
+                    {
+                      "options": {
+                        "0": {
+                          "color": "orange",
+                          "index": 1,
+                          "text": "DOWN"
+                        },
+                        "1": {
+                          "color": "blue",
+                          "index": 0,
+                          "text": "UP"
+                        }
+                      },
+                      "type": "value"
+                    },
+                    {
+                      "options": {
+                        "match": "null",
+                        "result": {
+                          "index": 2,
+                          "text": "N/A"
+                        }
+                      },
+                      "type": "special"
+                    }
+                  ]
+                },
+                "overrides": []
+              },
+              "options": {
+                "autoSizeColumns": true,
+                "autoSizePolygons": true,
+                "autoSizeRows": true,
+                "compositeConfig": {
+                  "animationSpeed": "2500",
+                  "composites": [],
+                  "enabled": true
+                },
+                "compositeGlobalAliasingEnabled": false,
+                "ellipseCharacters": 18,
+                "ellipseEnabled": false,
+                "globalAutoScaleFonts": true,
+                "globalClickthrough": "/explore?orgId=1&left={\"datasource\":\"loki-cloud\",\"queries\":[{\"refId\":\"A\",\"expr\":\"{namespace=\\\"production\\\"} |~ \\\"(?i)error|exception|warn\\\" |~ \\\"sockshop\\\"| logfmt\",\"queryType\":\"range\",\"datasource\":{\"type\":\"loki\",\"uid\":\"loki-cloud\"}}],\"range\":{\"from\":\"${__from}\",\"to\":\"${__to}\"}}",
+                "globalClickthroughCustomTarget": "",
+                "globalClickthroughCustomTargetEnabled": false,
+                "globalClickthroughNewTabEnabled": true,
+                "globalClickthroughSanitizedEnabled": false,
+                "globalDecimals": 2,
+                "globalDisplayMode": "all",
+                "globalDisplayTextTriggeredEmpty": "OK",
+                "globalFillColor": "#5794F2",
+                "globalFontSize": 12,
+                "globalGradientsEnabled": true,
+                "globalOperator": "mean",
+                "globalPolygonBorderColor": "#00000000",
+                "globalPolygonBorderSize": 2,
+                "globalPolygonSize": 50,
+                "globalRegexPattern": "",
+                "globalShape": "hexagon_pointed_top",
+                "globalShowTooltipColumnHeadersEnabled": true,
+                "globalShowValueEnabled": true,
+                "globalTextFontAutoColor": "#000000",
+                "globalTextFontAutoColorEnabled": true,
+                "globalTextFontColor": "",
+                "globalTextFontFamily": "Roboto",
+                "globalThresholdsConfig": [],
+                "globalTooltipsEnabled": true,
+                "globalTooltipsFontFamily": "Roboto",
+                "globalTooltipsShowTimestampEnabled": true,
+                "globalUnitFormat": "short",
+                "layoutDisplayLimit": 100,
+                "layoutNumColumns": 8,
+                "layoutNumRows": 8,
+                "overrideConfig": {
+                  "overrides": []
+                },
+                "panelId": 0,
+                "radius": 100,
+                "sortByDirection": 1,
+                "sortByField": "name",
+                "tooltipDisplayMode": "all",
+                "tooltipDisplayTextTriggeredEmpty": "OK",
+                "tooltipPrimarySortByField": "thresholdLevel",
+                "tooltipPrimarySortDirection": 2,
+                "tooltipSecondarySortByField": "value",
+                "tooltipSecondarySortDirection": 2
+              }
+            },
+            "version": "2.1.7"
+          }
+        }
+      }
+    },
+    "layout": {
+      "kind": "RowsLayout",
+      "spec": {
+        "rows": [
+          {
+            "kind": "RowsLayoutRow",
+            "spec": {
+              "collapse": false,
+              "fillScreen": true,
+              "layout": {
+                "kind": "GridLayout",
+                "spec": {
+                  "items": [
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-3"
+                        },
+                        "height": 10,
+                        "width": 8,
+                        "x": 0,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-2"
+                        },
+                        "height": 10,
+                        "width": 8,
+                        "x": 8,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-23"
+                        },
+                        "height": 10,
+                        "width": 8,
+                        "x": 16,
+                        "y": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              "title": "Service RED Metrics"
+            }
+          },
+          {
+            "kind": "RowsLayoutRow",
+            "spec": {
+              "collapse": false,
+              "layout": {
+                "kind": "GridLayout",
+                "spec": {
+                  "items": [
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-31"
+                        },
+                        "height": 10,
+                        "width": 8,
+                        "x": 0,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-35"
+                        },
+                        "height": 10,
+                        "width": 8,
+                        "x": 8,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-25"
+                        },
+                        "height": 10,
+                        "width": 8,
+                        "x": 16,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-7"
+                        },
+                        "height": 10,
+                        "width": 8,
+                        "x": 0,
+                        "y": 10
+                      }
+                    },
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-11"
+                        },
+                        "height": 21,
+                        "width": 16,
+                        "x": 8,
+                        "y": 10
+                      }
+                    },
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-33"
+                        },
+                        "height": 10,
+                        "width": 8,
+                        "x": 0,
+                        "y": 20
+                      }
+                    }
+                  ]
+                }
+              },
+              "title": "Key Performance Indicators"
+            }
+          }
+        ]
+      }
+    },
+    "links": [],
+    "liveNow": false,
+    "preload": false,
+    "tags": [],
+    "timeSettings": {
+      "autoRefresh": "1m",
+      "autoRefreshIntervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "fiscalYearStartMonth": 0,
+      "from": "now-24h",
+      "hideTimepicker": false,
+      "timezone": "browser",
+      "to": "now"
+    },
+    "title": "Extreme Dashboard - 2026.05.07 Iteration",
+    "variables": [
+      {
+        "kind": "QueryVariable",
+        "spec": {
+          "allValue": ".*",
+          "allowCustomValue": true,
+          "current": {
+            "text": "All",
+            "value": [
+              "$__all"
+            ]
+          },
+          "hide": "dontHide",
+          "includeAll": true,
+          "label": "Service",
+          "multi": true,
+          "name": "service",
+          "options": [],
+          "query": {
+            "datasource": {
+              "name": "prometheus-cloud"
+            },
+            "group": "prometheus",
+            "kind": "DataQuery",
+            "spec": {
+              "label": "job",
+              "labelFilters": [
+                {
+                  "label": "app",
+                  "op": "=",
+                  "value": "sockshop"
+                }
+              ],
+              "metric": "request_duration_seconds_bucket",
+              "qryType": 1,
+              "query": "label_values(request_duration_seconds_bucket{app=\"sockshop\"},job)",
+              "refId": "PrometheusVariableQueryEditor-VariableQuery"
+            },
+            "version": "v0"
+          },
+          "refresh": "onDashboardLoad",
+          "regex": ".*\\/(.+)",
+          "regexApplyTo": "value",
+          "skipUrlSync": false,
+          "sort": "alphabeticalAsc"
+        }
+      }
+    ]
+  }
