@@ -12,7 +12,7 @@ Follow these steps to Import it:
 4. You will be asked to choose three of your dashboard's data sources:
     - For TestData DB, choose `TestData DB`.
     - For Prometheus (Cloud), choose `Prometheus (Cloud)`.
-    - For LokiNGINX, choose `LokiNginxLogs`.
+    - For LokiNGINX, choose `Loki (Cloud)`.
     - Click on *Import*.
 
 *While our existing dashboard already has useful information such as RED metrics - request rates, errors, and duration/latency - for our service as well as state information for the underlying Kubernetes pods and end-user activity from a geographic lens, our aim is to make the information on the dashboard easier to understand and more visually appealing.*
@@ -78,8 +78,9 @@ This one is a mess. I've been told that this data is from OSS [Loki](https://gra
 ![Query Type](img/Query-Type.png)
 7. We want to add markers on the map.  Again using the *Search options* in the top right, find *Map layer* and click on Layer 1 *markers*. We want a lookup of the country by our *geoip_country_code* field.
 8. To do this, under *Location Mode*, click *Lookup* and then under Lookup Field, choose *geoip_country_code*.  You should now see data on your map. But we're not done!
-9. Under Styles, change Size from *Fixed Value* to *Value #Hits by geolocation*.
+9. Under Styles, change Size from *Fixed Value* to *Value #Hits by geolocation*, setting the min to **10** and the max to **50**.
 10. Change Symbol from Circles to Star. Do this by selecting the circle.svg text, selecting Star and hitting 'Select'.
+11. Set *Fill opacity* to **1**.
 11. Change Color from *Fixed color* to *Value #Hits by geolocation*.
 12. The colors of blue and orange seem to blend in a bit much on the map, so we need to make them stand out a bit more. Using the *Search options* box in the top right, enter `thresholds`. Change the base color to Dark Purple by clicking on the orange circle, then clicking on dark purple, and then click outside of that popup window.
 14. For a threshold of 10, change the color to dark Orange using the same method as above.
@@ -91,7 +92,7 @@ Since this service latency graph is viewed by dozens of people, we know statisti
 2. Switch the Visualization Type to *Time Series*, if it isn't already.
 3. Let's fix the legend first:
     * Under the query on the left, in the Options panel, change the Legend type from Verbose to *Custom* and enter `{{ job }}`.  You will notice that the name of the job is displayed at the bottom of the graph, instead of the raw key/value pair.  But we still don't like the fact that the namespace of _development_ still appears.  So, let's use a _transformation_ to rename our fields.
-    * Click on _Transform_ and then _Rename by Regex_ (scroll down the list or use the 'Add transformation' search).  For match, let's do 2 string captures - before and after the */*.
+    * Click on _Transform_ and then _Rename fields by Regex_ (use the 'Add transformation' search to find it).  For match, let's do 2 string captures - before and after the */*.
     * For match, type in `.+/(.+)`
     * For the _Replace_ field, type in `$1`
 4. Someone else said this graph, denoted in seconds, would be easier to understand if it were in milliseconds.
@@ -134,7 +135,9 @@ Below is what your panel should look like:
 ## Add existing library panels
 Remembering that someone saved some valuable service KPI panels to your Panel Library, adding them will give our users a better picture of how our service is being delivered.
 
-1. From your dashboard, click the _Add_ button at the top of the screen, and then _Import from Library_. 
+1. From your dashboard, click the _Add_ button, click on the _Plus_ button to create a new panel. Find the newly-created panel at the bottom of your dashboard, and then click _Use library panel_.
+   ![Add Library Panel](img/use-library-panel.webp)
+
 
 2. Search for the word "Apdex" and choose Panel, "Service APDEX".
 
@@ -151,7 +154,7 @@ After adding these panels, you notice at the top they all have a link icon. Thes
 To import that drilldown dashboard (Called `Sockshop Performance`):
 
 1. Click the menu button (☰) at the top left, and then click on *Dashboards*.
-2. On the Dashboards screen, click the *New* button and then click *Import*.
+2. On the Dashboards screen, click the *New* button and then click *Import dashboard*.
 2. In the Import via grafana.com field, type in `16416` and then click *Load*.
 3. You will be asked to choose your dashboard's data source:
     - For Prometheus (Cloud), choose `Prometheus (Cloud)`.
@@ -169,33 +172,39 @@ However, you want to add a similar drilldown to the _SLO Status (Errors) per Dat
 
 ## Add our company logo
 For a bit of flair, we'd like to add our company logo.  To do so:
-1. In the (formerly) dull dashboard, click on the _Add_ button, then select _Visualization_.
-2. On the right hand side, click on the default "Time Series" and search for 'Text'. Choose a *Text* panel.
-3. For _mode_ in the bottom right, switch from Markdown to HTML.
-4. Remove the default text and paste in the following HTML:
+1. In the (formerly) dull dashboard, click on the _Add_ button, then click on the _Plus_ button to create a new panel.
+2. Click _Edit visualization_.
+3. On the right hand side, click _Change_ to bring up the visualization menu. Make sure that _All visualizations_ is selected, then search for 'Text'. Choose a *Text* panel.
+4. For _mode_ in the bottom right, switch from Markdown to HTML.
+5. Remove the default text and paste in the following HTML:
 
     ```html
     <center><img align="center" src="https://i.pinimg.com/originals/74/a0/a5/74a0a51848fb3717c671598dc675c654.jpg" ></center>
     ```
 
-5. Remove the Panel Title, Click on _Transparent Background_ and click *Save Dashboard*.
-6. Size the panel appropriately.
+6. Remove the Panel Title, Click on _Transparent Background_ and click *Save Dashboard*.
+7. Size the panel appropriately.
 
 ## Arrange our panels
 Finally, we need to arrange our panels so that the most important graphs are in that Z pattern, spaced appropriately, and properly sized.
 We may need to add some spacing to our dashboard.  To do so, choose the blank text panel we have saved in our library.
 
-1. First, let's add a row for our RED metrics (request rates, errors, and duration/latency).
-    *  Click on the _Add_ button click _Row_.
-    *  Hover over the new row, click on the Gear icon to change the row title to *Service RED Metrics*. Going left to right, move Server Requests per Second, SLO Status (Errors) per Data Center, and Latency for Sockshop App on the top row.
-2. Add a 2nd row called *Key Performance Indicators*
-    * Move the rest of the graphs into this grouping.  In the middle row, going left to right, move Service Apdex, Latency quantiles, and then our logo to this middle row.
-    * In the bottom area, we should have K8s Service Status on the left, Infrastucture - Error Score below it, and the Customer Activity map to the right of those two graphs.
-    * To reorder rows, click on the arrow to the left of each row's title to collapse the row, then use the dragging handle at the far right of the row to move it up or down.
-4. Click _Add_ and then _Import from Library_. Choose Panel, "Blank Space".  Add a small row of blank space after our row of Service RED Metrics.
-5. Choose _Add Panel_ and then _Import from Library_. Choose Panel, "Blank Space".  Add a small row of blank space after our top row of Key Performance Indicators.
+1. First, let's configure this dashboard to group into tabs. Scroll to the bottom of the dashboard and click on the _Group panels_ button, selecting _Group into tab_. This will place all panels into a single tab.
+2. Click on the tab ("New tab") to select it, and use the properties panel on the right to change its title to *Service Health (RED)*. Set its *Layout* type to *Custom*.
+2. Hover over the row of tabs and click on the button _Add tab_. With the row selected, use the properties panel on the right to set the row title to *Key Performance Indicators*. Leave its *Layout* type to *Auto*, and set the *Max columns* to **2**.
+3. Now click and drag each of the following panels into the Key Performance Indicators row:
+   * K8s Service Status
+   * Customer Activity
+   * Service Apdex
+   * Infrastructure - Error Score
+   * Latency quantiles
+6. Rearrange the panels on the _Service RED Metrics_ tab so that the top row has:
+   - Company logo
+   - SLO Status (Errors) per Data Center
+   - Server Request Rates per Second
+    The second row should have the Latency for Sockshop App panel, expanded to full width.
 
-After arranging our panels and adding space, your dashboard should look something similar to this:
+After arranging your panels, your dashboard should look something similar to this:
 
 ![Final-Dashboard One](img/dashboard-one.png)
 
