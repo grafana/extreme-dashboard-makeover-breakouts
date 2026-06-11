@@ -1,0 +1,91 @@
+---
+sidebar_position: 9
+sidebar_custom_props:
+  icon: 🔭
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# 9. Explore more with Assistant
+
+If you finish with time to spare, try one or more of these. Pick the one that sounds most useful and go.
+
+## Add a service filter variable
+
+Dashboard variables let viewers filter every panel at once. Configuring them manually means understanding the variable-query syntax and editing each panel to wire the variable in. One prompt does it all:
+
+```assistant title="Suggested prompt"
+I want a service filter dropdown at the top of this dashboard. Pull the service names from the Sockshop Prometheus metrics, just showing the short names like "carts" and "orders", not the full namespace path. Let me select multiple services or all at once, and sort them alphabetically. Wire the filter into the Request Latency and K8s Service Status panels expressions.
+```
+
+After Assistant creates the variable, you should see a dropdown at the top of your dashboard. Try selecting different services and watch the panels update.
+
+![Service Variable Dropdown](/img/breakout2/exercise6-variable-dropdown.png)
+
+The filter cascades through: the Latency panel shows only the selected service, and the polystat updates to show just that container's status.
+
+<img src={useBaseUrl('/img/breakout2/exercise6-latency-filtered-carts.png')} alt="Latency Filtered to Carts" height="300" />
+
+<img src={useBaseUrl('/img/breakout2/exercise6-polystat-carts-up.png')} alt="Polystat Filtered to Carts" height="300" />
+
+## Audit the queries powering this dashboard
+
+This one is hard to do manually unless you're already fluent in PromQL and LogQL. Ask Assistant to walk through every query.
+
+```assistant title="Suggested prompt"
+Review the queries on this dashboard. Are there any that could be optimized for better performance or clarity? Explain what each query does in plain language.
+```
+
+Read through Assistant's analysis. Even if you don't change anything, this is the kind of insight that normally requires a dedicated review session.
+
+![Query Optimization Review](/img/breakout2/exercise8-query-optimization-review.png)
+
+## Discover what's missing
+
+One of Assistant's most valuable capabilities is identifying monitoring gaps: metrics and data available in your environment but not yet on the dashboard.
+
+```assistant title="Suggested prompt"
+What Prometheus metrics are available in this environment that aren't currently shown on this dashboard? Suggest 2-3 additional panels that would improve our monitoring coverage.
+```
+
+If Assistant suggests panels that look useful, follow up with:
+
+```assistant title="Suggested prompt"
+Add those suggested panels to the dashboard.
+```
+
+![Gap Analysis](/img/breakout2/exercise9-gap-analysis-with-settings.png)
+
+![New Panel Added](/img/breakout2/exercise9-new-panel-added.png)
+
+## Freestyle: invent your own prompt
+
+Try one more improvement we haven't covered. A few ideas to spark inspiration:
+
+- *"Add an annotation query that marks deployment events on the time series panels."*
+- *"Create a text panel with a dashboard summary explaining what this dashboard monitors and who should use it."*
+- *"Change the basemap on the Customer Activity geomap to a dark theme."*
+- *"Add a time range override so the K8s Service Status always shows the last 5 minutes regardless of the dashboard time picker."*
+- *"Group the panels into rows with descriptive headers."*
+
+Or invent your own.
+
+:::tip
+
+When you're done, save your dashboard. We'll do a quick round of sharing: what did you try, and what surprised you?
+
+:::
+
+## Troubleshooting
+
+**Assistant isn't responding or seems stuck.**
+Try refreshing the page and reopening the Assistant sidebar. Make sure you're on the dashboarding version of Assistant.
+
+**Assistant says it can't find a panel.**
+Use the exact panel name as it appears on the dashboard. If you renamed panels earlier, use the new name.
+
+**Changes don't appear immediately.**
+Some changes require saving and reloading. Click *Save Dashboard* and refresh.
+
+**"No data" on a new panel.**
+The query may reference a metric or label that doesn't exist in your environment. Ask Assistant: "This panel shows no data. Can you check the query and fix it?"

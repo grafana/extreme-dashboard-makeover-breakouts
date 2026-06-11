@@ -1,10 +1,26 @@
-# Extreme-Dashboard-Makeover
+# extreme-dashboard-makeover-breakouts
 
-![Grafana Logo](grafana.png)
+![Grafana Logo](./site/static/img/grafana.png)
 
+Hands-on workshop for the **Extreme Dashboard Makeover**, served as a Docusaurus site.
 
-## Breakouts:
+- **Dashboard Makeover** breakout: manual dashboarding fundamentals, with Grafana Assistant for bulk and repetitive work
+- **Take-Home Challenge**: KitchenOps (optional)
 
-[Breakout 1: Solo Makeover](./solo_makeover.md)
+## Run locally
 
-[(Optional) Take home exercise 2: Individual Challenge](./individual_challenge.md)
+```sh
+cd site
+npm install
+npm start
+```
+
+The site is served at http://localhost:3001/extreme-dashboard-makeover-breakouts/.
+
+## Build for production
+
+```sh
+cd site
+npm run build
+npm run serve
+```
