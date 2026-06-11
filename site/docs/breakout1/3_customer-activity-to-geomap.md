@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 3. Convert Customer Activity to a Geomap
 
-This one is a mess. I've been told that this data is from OSS [Loki](https://grafana.com/oss/loki/), our logging tool, and represents the number of hits coming from each geographic region. It is colorful, but I have a very difficult time interpreting the information. Let's change the visualization to a map!
+This one could use some rethinking. The data comes from OSS [Loki](https://grafana.com/oss/loki/), our logging tool, and represents the number of hits coming from each geographic region. It's colorful, but the geographic story is hard to read at a glance. A map will make it much clearer.
 
 1. Edit the *Customer Activity* panel (hover over the panel's title, click the three vertical dots to show the context menu, and then click *Edit*).
 2. Switch the Visualization Type from *Stat* to *Geomap*.
@@ -24,7 +24,26 @@ This one is a mess. I've been told that this data is from OSS [Loki](https://gra
 10. Change Symbol from Circles to Star. Do this by selecting the circle.svg text, selecting Star and hitting *Select*.
 11. Set *Fill opacity* to **1**.
 12. Change Color from *Fixed color* to *Value #Hits by geolocation*.
-13. The colors of blue and orange seem to blend in a bit much on the map, so we need to make them stand out a bit more. Using the *Search options* box in the top right, enter `thresholds`. Change the base color to Dark Purple by clicking on the orange circle, then clicking on dark purple, and then click outside of that popup window.
+
+## Tighten up the threshold colors
+
+The blue and orange the geomap picked are blending in. We want the markers to pop against the basemap. You could do this manually:
+
+13. Using the *Search options* box in the top right, enter `thresholds`. Change the base color to Dark Purple by clicking on the orange circle, then clicking on dark purple, and then click outside of that popup window.
 14. For a threshold of 10, change the color to Dark Orange using the same method as above.
 15. Delete the 3rd threshold value of 20 by clicking on its garbage can icon.
 16. Click *Save Dashboard* to leave edit mode of that panel.
+
+<details>
+  <summary>Or use Grafana Assistant for the threshold tweaks</summary>
+
+  You've already wired up the harder parts of this panel by hand (basemap, marker layer, lookup field, value-bound size/color). Threshold color tweaks are the kind of repetitive nudging Assistant handles well. Try this instead of steps 13-15:
+
+  ```assistant title="Suggested prompt"
+  On the Customer Activity geomap, change the base threshold color to dark purple, change the threshold at value 10 to dark orange, and delete the threshold at value 20.
+  ```
+
+  Then click *Save Dashboard*.
+
+</details>
+

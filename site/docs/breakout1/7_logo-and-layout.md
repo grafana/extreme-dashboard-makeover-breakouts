@@ -60,6 +60,18 @@ After arranging your panels, your dashboard should look something similar to thi
 
 ![Final Dashboard](/img/breakout1/dashboard-one.webp)
 
+<details>
+  <summary>Want Assistant to scaffold the tabs for you?</summary>
+
+  Assistant can create the three tabs and assign panels to them in one go. You'll still want to manually arrange the panels inside each tab (the Z-pattern is a design choice), but the tab scaffolding is the repetitive part:
+
+  ```assistant title="Suggested prompt"
+  Group the panels on this dashboard into three tabs. Tab 1 "Service Health (RED)" with Custom layout, holding SLO Status (Errors) per Data Center, Server Request Rates per Second, Latency for Sockshop App, the Latency quantiles panel, and the company logo. Tab 2 "Infrastructure" with Auto layout and Max columns 2, holding K8s Service Status and Infrastructure - Error Score. Tab 3 "Customer Experience" with Auto layout and Max columns 2, holding Customer Activity and Service Apdex.
+  ```
+
+</details>
+
+
 ## Didn't finish? Import the completed dashboard
 
 If you didn't quite finish but would like a working copy of our result, you can import the dashboard:

@@ -2,10 +2,9 @@
 
 ![Grafana Logo](./site/static/img/grafana.png)
 
-Hands-on breakouts for the **Extreme Dashboard Makeover** workshop, served as a Docusaurus site.
+Hands-on workshop for the **Extreme Dashboard Makeover**, served as a Docusaurus site.
 
-- **Breakout 1**: Solo Makeover (manual dashboard refinement)
-- **Breakout 2**: AI-Assisted Dashboard Refinement (Grafana Assistant)
+- **Dashboard Makeover** breakout: manual dashboarding fundamentals, with Grafana Assistant for bulk and repetitive work
 - **Take-Home Challenge**: KitchenOps (optional)
 
 ## Run locally

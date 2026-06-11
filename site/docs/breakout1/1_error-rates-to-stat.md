@@ -26,3 +26,14 @@ We will edit the Error Rates panel first. We want to add context to what error r
 
 5. Change the Panel Title to *SLO Status (Errors) per Data Center*.
 6. Click on *Save Dashboard*.
+
+:::tip Want to skip this next time?
+
+Once you understand how value mappings work, you can let Assistant set them up for you. The equivalent prompt would be:
+
+```assistant title="Suggested prompt"
+Convert the Error Rates panel to a Stat with horizontal orientation and a Background Gradient color mode. Add three range value mappings: 0-1 "OK" in blue, 1-2 "Service Degraded" in yellow, 2-100 "SLO Violation" in orange. Rename the panel to "SLO Status (Errors) per Data Center".
+```
+
+:::
+

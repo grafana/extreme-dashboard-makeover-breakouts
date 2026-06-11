@@ -4,13 +4,13 @@ sidebar_position: 2
 
 import DocCardList from '@theme/DocCardList';
 
-# Breakout 1: Solo Makeover
+# Dashboard Makeover
 
 We will be revamping the following dashboard.
 
 ![Dull Dashboard](/img/breakout1/dull-dashboard.png)
 
-While our existing dashboard already has useful information such as RED metrics (request rates, errors, and duration/latency) for our service, as well as state information for the underlying Kubernetes pods and end-user activity from a geographic lens, our aim is to make the information on the dashboard easier to understand and more visually appealing.
+Our existing dashboard already has useful information: RED metrics (request rates, errors, and duration/latency) for our service, state information for the underlying Kubernetes pods, and end-user activity from a geographic lens. Our aim is to make that information easier to understand and more visually appealing.
 
 ## Prerequisite: import the starter dashboard
 
@@ -23,9 +23,32 @@ While our existing dashboard already has useful information such as RED metrics 
     - For LokiNGINX, choose `Loki (Cloud)`.
     - Click on *Import*.
 
+## Get oriented with Grafana Assistant
+
+We'll do most of this workshop by hand, but Grafana Assistant shows up at key moments. Get it open before you start so it's ready when you need it.
+
+1. Look for the **Assistant icon** in the top navigation bar; it looks like a sparkle/star icon. Click it to open the Assistant sidebar.
+
+    ![Assistant Icon](/img/breakout2/assistant-icon-top-nav.png)
+
+2. At the bottom of the Assistant sidebar, click the model or mode selector and switch to the **dashboarding version** of Assistant. This version is specifically tuned for dashboard creation and editing tasks.
+
+    ![Assistant Mode Selector](/img/breakout2/assistant-mode-selector-dashboarding.png)
+
+3. You should now see a chat interface on the right side of your screen, with your dashboard visible on the left.
+
+    ![Assistant Sidebar Open](/img/breakout2/assistant-sidebar-open.png)
+
+When a step shows an Assistant prompt, you'll see a code block like this:
+
+```assistant title="Suggested prompt"
+This is what an Assistant prompt looks like in this workshop.
+```
+
+Copy the prompt into the Assistant sidebar (or rephrase in your own words) and let it work.
+
 ## Steps
 
 Work through each panel makeover in order. Each step is self-contained and ends with a screenshot of the expected result.
-
 
 <DocCardList />

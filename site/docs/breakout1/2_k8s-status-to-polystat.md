@@ -29,3 +29,14 @@ This table is showing us tons of information that we already know. The original 
 The panel should look similar to what is shown below:
 
 ![K8s Service Status](/img/breakout1/k8s-service-status.png)
+
+:::tip Want to skip this next time?
+
+Configuring two thresholds and two value mappings by hand is a lot of clicking. Now that you've seen what each control does, you can ask Assistant to do it:
+
+```assistant title="Suggested prompt"
+Convert the K8s Service Status panel to a Polystat. Change the query format to Time Series and set Decimals to 0. Add two thresholds: 0 with critical color mode (orange) and 1 with ok color mode (blue). Add value mappings: 1 displays as "UP", 0 displays as "DOWN". Set the font family to Inter and turn off Automate Font Color.
+```
+
+:::
+

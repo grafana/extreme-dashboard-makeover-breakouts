@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # 6. Add library panels and a drilldown
 
-Remembering that someone saved some valuable service KPI panels to your Panel Library, adding them will give our users a better picture of how our service is being delivered.
+A teammate previously saved a few useful service KPI panels to your Panel Library. Adding them here gives viewers a fuller picture of how the service is performing.
 
 ## Add the library panels
 
@@ -41,13 +41,29 @@ To import that drilldown dashboard (called `Sockshop Performance`):
 
 ## Add a drilldown data link to the SLO panel
 
-You want to add a similar drilldown to the *SLO Status (Errors) per Data Center* panel (i.e. the renamed "Error Rates" panel) just in case users don't see the panel links.
+You want to add a similar drilldown to the *SLO Status (Errors) per Data Center* panel (the renamed "Error Rates" panel) just in case users don't see the panel links.
 
-1. Open the "dull dashboard" (find it in Home → Dashboards).
-2. Edit the *SLO Status (Errors) per Data Center* panel and find the category *Data Links* (3rd from the bottom, *not* Panel Links).
-3. Click *Add Link* and add the following:
-    - For Title, type in *Sockshop Service Details*.
-    - For URL, paste in `/d/b2kdXLwnz/sockshop-performance?orgId=1`
-    - Select *Open in new tab* and click *Save*.
-4. Click *Save Dashboard* to return to the Dashboard and then click the *Save* icon to save your changes.
-5. Now that you have saved your work, click anywhere on the SLO Status (Errors) graph to validate it drills into that other detailed dashboard.
+Adding a data link manually means finding the right section in the panel editor (it's the 3rd-from-bottom, easy to miss), typing the URL, toggling *Open in new tab*, and saving. Or, you can do it in one sentence:
+
+```assistant title="Suggested prompt"
+Add a data link to the SLO Status (Errors) per Data Center panel titled "Sockshop Service Details" that navigates to the Sockshop Performance dashboard and opens in a new tab.
+```
+
+After Assistant finishes, click anywhere on the SLO Status panel to validate the drilldown navigates to the Sockshop Performance dashboard.
+
+![Drilldown Data Link](/img/breakout2/exercise7-data-link.png)
+
+<details>
+  <summary>Curious how to do this without Grafana Assistant?</summary>
+
+  1. Open the "dull dashboard" (find it in Home → Dashboards).
+  2. Edit the *SLO Status (Errors) per Data Center* panel and find the category *Data Links* (3rd from the bottom, *not* Panel Links).
+  3. Click *Add Link* and add the following:
+      - For Title, type in *Sockshop Service Details*.
+      - For URL, paste in `/d/b2kdXLwnz/sockshop-performance?orgId=1`
+      - Select *Open in new tab* and click *Save*.
+  4. Click *Save Dashboard* to return to the Dashboard and then click the *Save* icon to save your changes.
+  5. Click anywhere on the SLO Status (Errors) graph to validate it drills into that other detailed dashboard.
+
+</details>
+

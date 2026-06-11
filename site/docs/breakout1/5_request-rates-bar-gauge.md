@@ -21,3 +21,16 @@ Like our first panel, we want context to understand what good looks like. Knowin
 Below is what your panel should look like:
 
 ![Webserver Request Rates](/img/breakout1/webserver-request-rates.png)
+
+## Try a different look in one prompt
+
+You configured the panel as Retro LCD. Maybe gradient would feel less retro. With one Assistant prompt, you can try a variant without re-walking the panel editor:
+
+```assistant title="Suggested prompt"
+Switch the Server Request Rates per Second panel to a gradient bar gauge instead of retro LCD and show me how it looks.
+```
+
+![Gradient Bar Gauge](/img/breakout2/exercise5-gradient-bar-gauge.png)
+
+Keep whichever variant you prefer. The point: visualization tweaks that used to take a trip into the panel editor now take a sentence.
+
