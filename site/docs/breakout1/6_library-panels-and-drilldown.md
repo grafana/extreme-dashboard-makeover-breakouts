@@ -1,5 +1,7 @@
 ---
 sidebar_position: 6
+sidebar_custom_props:
+  icon: 📚
 ---
 
 # 6. Add library panels and a drilldown

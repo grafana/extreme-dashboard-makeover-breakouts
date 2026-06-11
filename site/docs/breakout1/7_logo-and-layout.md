@@ -1,5 +1,7 @@
 ---
 sidebar_position: 7
+sidebar_custom_props:
+  icon: 🗂️
 ---
 
 # 7. Add a logo, then arrange into tabs

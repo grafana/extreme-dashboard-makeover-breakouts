@@ -67,6 +67,10 @@ const config = {
           sidebarPath: './sidebars.js',
           editUrl:
             'https://github.com/grafana/extreme-dashboard-makeover-breakouts/tree/main/site/',
+          admonitions: {
+            keywords: ['assistant-tip'],
+            extendDefaults: true,
+          },
         },
         blog: false,
         theme: {

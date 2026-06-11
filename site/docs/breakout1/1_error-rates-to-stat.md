@@ -1,5 +1,7 @@
 ---
 sidebar_position: 1
+sidebar_custom_props:
+  icon: 🚦
 ---
 
 # 1. Convert Error Rates to a Stat panel
@@ -27,7 +29,7 @@ We will edit the Error Rates panel first. We want to add context to what error r
 5. Change the Panel Title to *SLO Status (Errors) per Data Center*.
 6. Click on *Save Dashboard*.
 
-:::tip Want to skip this next time?
+:::assistant-tip[Want to skip this next time?]
 
 Once you understand how value mappings work, you can let Assistant set them up for you. The equivalent prompt would be:
 

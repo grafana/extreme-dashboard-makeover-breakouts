@@ -1,5 +1,7 @@
 ---
 sidebar_position: 5
+sidebar_custom_props:
+  icon: 📊
 ---
 
 # 5. Convert Server Request Rates to a Bar Gauge

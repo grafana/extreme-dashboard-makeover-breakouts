@@ -1,5 +1,7 @@
 ---
 sidebar_position: 4
+sidebar_custom_props:
+  icon: ⏱️
 ---
 
 # 4. Update the Latency for Sockshop App panel

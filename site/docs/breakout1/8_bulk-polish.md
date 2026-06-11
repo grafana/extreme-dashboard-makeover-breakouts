@@ -1,5 +1,7 @@
 ---
 sidebar_position: 8
+sidebar_custom_props:
+  icon: ✨
 ---
 
 # 8. Polish the dashboard with Assistant

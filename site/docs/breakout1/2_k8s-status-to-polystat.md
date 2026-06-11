@@ -1,5 +1,7 @@
 ---
 sidebar_position: 2
+sidebar_custom_props:
+  icon: 🔷
 ---
 
 # 2. Convert K8s Service Status to a Polystat panel
@@ -30,7 +32,7 @@ The panel should look similar to what is shown below:
 
 ![K8s Service Status](/img/breakout1/k8s-service-status.png)
 
-:::tip Want to skip this next time?
+:::assistant-tip[Want to skip this next time?]
 
 Configuring two thresholds and two value mappings by hand is a lot of clicking. Now that you've seen what each control does, you can ask Assistant to do it:
 
